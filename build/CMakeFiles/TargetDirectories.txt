@@ -1,0 +1,3 @@
+/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir
+/home/nier/Documents/Projects/Tetris/build/CMakeFiles/edit_cache.dir
+/home/nier/Documents/Projects/Tetris/build/CMakeFiles/rebuild_cache.dir
