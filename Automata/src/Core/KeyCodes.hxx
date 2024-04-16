@@ -4,7 +4,9 @@
 
 namespace Automata
 {
-    enum class Key
+    using KeyCode = int;
+
+    enum Key : KeyCode
     {
         C = GLFW_KEY_C,
         J = GLFW_KEY_J,

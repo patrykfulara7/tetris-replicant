@@ -1,9 +1,8 @@
-#include <Automata.hxx>
 #include <Core/main.hxx>
 
-#include "GameLayer.hxx"
+#include "tetpch.hxx"
 
-#include <iostream>
+#include "GameLayer.hxx"
 
 namespace Automata
 {
@@ -11,7 +10,7 @@ namespace Automata
     {
     public:
         TetrisApplication()
-            : Application(400, 800, "Tetris")
+            : Application(10 * 32, 20 * 32, "Tetris")
         {
             PushLayer(new GameLayer());
         }

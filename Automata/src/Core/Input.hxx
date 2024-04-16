@@ -2,6 +2,8 @@
 
 #include "ampch.hxx"
 
+#include "Core/Window.hxx"
+
 #include "Core/KeyCodes.hxx"
 
 namespace Automata

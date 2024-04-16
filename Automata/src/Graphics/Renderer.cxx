@@ -20,14 +20,14 @@ namespace Automata
 
         vertexArray = VertexArray::Create();
 
-        GLfloat vertcies[] =
+        std::array<GLfloat, 16> vertcies =
         {
-            -0.5f, -0.5f, 0.0f, 0.0f,
-            -0.5f,  0.5f, 0.0f, 1.0f,
-             0.5f, -0.5f, 1.0f, 0.0f,
-             0.5f,  0.5f, 1.0f, 1.0f
+            0.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f, 1.0f,
+            1.0f, 0.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f, 1.0f
         };
-        auto vertexBuffer = VertexBuffer::Create(sizeof(vertcies), vertcies, GL_STATIC_DRAW);
+        auto vertexBuffer = VertexBuffer::Create(vertcies.size() * sizeof(GLfloat), vertcies.data(), GL_STATIC_DRAW);
         vertexArray->SetVertexBuffer(vertexBuffer);
 
         auto bufferLayout = BufferLayout::Create();
@@ -35,12 +35,12 @@ namespace Automata
         bufferLayout->PushAttribute(2, GL_FLOAT, GL_FALSE);
         vertexArray->SetBufferLayout(bufferLayout);
 
-        GLuint indicies[] =
+        std::array<GLuint, 6> indicies =
         {
             0, 1, 2,
             1, 2, 3
         };
-        auto elementBuffer = ElementBuffer::Create(sizeof(indicies), indicies, GL_STATIC_DRAW, GL_UNSIGNED_INT);
+        auto elementBuffer = ElementBuffer::Create(indicies.size() * sizeof(GLuint), indicies.data(), GL_STATIC_DRAW, GL_UNSIGNED_INT);
         vertexArray->SetElementBuffer(elementBuffer);
     }
 

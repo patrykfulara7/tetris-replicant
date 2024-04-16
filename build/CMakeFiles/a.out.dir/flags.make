@@ -6,7 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/nier/Documents/Projects/Tetris/Automata/src -I/home/nier/Documents/Projects/Tetris/Automata/vendor -I/home/nier/Documents/Projects/Tetris/Tetris/src
 
-CXX_FLAGS = -DAM_DEBUG -Wall -Wextra -g
+CXX_FLAGS = -DAM_DEBUG -Wall -Wextra
 
 # PCH options: CMakeFiles/a.out.dir/cmake_pch.hxx.gch_OPTIONS = -Winvalid-pch;-x;c++-header;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
 
@@ -20,13 +20,13 @@ CXX_FLAGS = -DAM_DEBUG -Wall -Wextra -g
 
 # PCH options: CMakeFiles/a.out.dir/Automata/src/Graphics/ElementBuffer.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
 
+# PCH options: CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
+
 # PCH options: CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
-
-# PCH options: CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/a.out.dir/Automata/src/Graphics/VertexArray.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
 
@@ -36,7 +36,11 @@ CXX_FLAGS = -DAM_DEBUG -Wall -Wextra -g
 
 # PCH options: CMakeFiles/a.out.dir/Automata/vendor/stb_image/stb_image.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
 
+# PCH options: CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
+
 # PCH options: CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
+
+# PCH options: CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o_OPTIONS = -Winvalid-pch;-include;/home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx
 

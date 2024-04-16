@@ -3,4 +3,5 @@
 #pragma GCC system_header
 #ifdef __cplusplus
 #include "/home/nier/Documents/Projects/Tetris/Automata/src/ampch.hxx"
+#include "/home/nier/Documents/Projects/Tetris/Tetris/src/tetpch.hxx"
 #endif // __cplusplus

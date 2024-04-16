@@ -5,6 +5,8 @@
 #include "Core/Window.hxx"
 #include "Core/Layer.hxx"
 
+#include "Events/Event.hxx"
+
 namespace Automata
 {
     class Application
@@ -22,9 +24,10 @@ namespace Automata
         virtual ~Application();
 
         void PushLayer(Layer *layer);
+        void OnEvent(Event& event);
 
         void Run();
-        void Close();
+        static void Close();
 
         static inline Application& Get() { return *instance; }
         inline Window& GetWindow() { return *window; }

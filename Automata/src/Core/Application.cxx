@@ -13,6 +13,9 @@ namespace Automata
         instance = this;
 
         window = Window::Create(width, height, title);
+
+        window->SetEventCallback(AM_BIND_EVENT(Application::OnEvent));
+
         Renderer::Init(width, height);
     }
 
@@ -27,9 +30,15 @@ namespace Automata
         this->layer->OnAttach();
     }
 
+    void Application::OnEvent(Event& event)
+    {
+        layer->OnEvent(event);
+    }
+
     void Application::Close()
     {
-        isRunning = false;
+        if (instance != nullptr)
+            Application::Get().isRunning = false;
     }
 
     void Application::Run()
@@ -39,7 +48,7 @@ namespace Automata
         {
             double time = glfwGetTime();
             double deltaTime = time - previousTime;
-
+            
             layer->OnUpdate(deltaTime);
 
             Renderer::Clear();

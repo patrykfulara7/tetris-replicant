@@ -164,12 +164,28 @@ CMakeFiles/a.out.dir/Automata/src/Graphics/ElementBuffer.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/Automata/src/Graphics/ElementBuffer.cxx.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -S /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/ElementBuffer.cxx -o CMakeFiles/a.out.dir/Automata/src/Graphics/ElementBuffer.cxx.s
 
+CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o: CMakeFiles/a.out.dir/flags.make
+CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o: ../Automata/src/Graphics/GLTypes.cxx
+CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx
+CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx.gch
+CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o: CMakeFiles/a.out.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -MD -MT CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o -MF CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o.d -o CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o -c /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/GLTypes.cxx
+
+CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -E /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/GLTypes.cxx > CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.i
+
+CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -S /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/GLTypes.cxx -o CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.s
+
 CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o: CMakeFiles/a.out.dir/flags.make
 CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o: ../Automata/src/Graphics/Renderer.cxx
 CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx
 CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx.gch
 CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o: CMakeFiles/a.out.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -MD -MT CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o -MF CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o.d -o CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o -c /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/Renderer.cxx
 
 CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.i: cmake_force
@@ -185,7 +201,7 @@ CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o: ../Automata/src/Graphic
 CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx
 CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx.gch
 CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o: CMakeFiles/a.out.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -MD -MT CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o -MF CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o.d -o CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o -c /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/Shader.cxx
 
 CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.i: cmake_force
@@ -201,7 +217,7 @@ CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o: ../Automata/src/Graphi
 CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx
 CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx.gch
 CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o: CMakeFiles/a.out.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -MD -MT CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o -MF CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o.d -o CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o -c /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/Texture.cxx
 
 CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.i: cmake_force
@@ -211,22 +227,6 @@ CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.i: cmake_force
 CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -S /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/Texture.cxx -o CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.s
-
-CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o: CMakeFiles/a.out.dir/flags.make
-CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o: ../Automata/src/Graphics/Types.cxx
-CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx
-CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx.gch
-CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o: CMakeFiles/a.out.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -MD -MT CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o -MF CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o.d -o CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o -c /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/Types.cxx
-
-CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -E /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/Types.cxx > CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.i
-
-CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -S /home/nier/Documents/Projects/Tetris/Automata/src/Graphics/Types.cxx -o CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.s
 
 CMakeFiles/a.out.dir/Automata/src/Graphics/VertexArray.cxx.o: CMakeFiles/a.out.dir/flags.make
 CMakeFiles/a.out.dir/Automata/src/Graphics/VertexArray.cxx.o: ../Automata/src/Graphics/VertexArray.cxx
@@ -292,12 +292,28 @@ CMakeFiles/a.out.dir/Automata/vendor/stb_image/stb_image.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/Automata/vendor/stb_image/stb_image.cxx.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -S /home/nier/Documents/Projects/Tetris/Automata/vendor/stb_image/stb_image.cxx -o CMakeFiles/a.out.dir/Automata/vendor/stb_image/stb_image.cxx.s
 
+CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o: CMakeFiles/a.out.dir/flags.make
+CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o: ../Tetris/src/Board.cxx
+CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx
+CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx.gch
+CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o: CMakeFiles/a.out.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -MD -MT CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o -MF CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o.d -o CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o -c /home/nier/Documents/Projects/Tetris/Tetris/src/Board.cxx
+
+CMakeFiles/a.out.dir/Tetris/src/Board.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/Tetris/src/Board.cxx.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -E /home/nier/Documents/Projects/Tetris/Tetris/src/Board.cxx > CMakeFiles/a.out.dir/Tetris/src/Board.cxx.i
+
+CMakeFiles/a.out.dir/Tetris/src/Board.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/Tetris/src/Board.cxx.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -S /home/nier/Documents/Projects/Tetris/Tetris/src/Board.cxx -o CMakeFiles/a.out.dir/Tetris/src/Board.cxx.s
+
 CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o: CMakeFiles/a.out.dir/flags.make
 CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o: ../Tetris/src/GameLayer.cxx
 CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx
 CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx.gch
 CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o: CMakeFiles/a.out.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -MD -MT CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o -MF CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o.d -o CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o -c /home/nier/Documents/Projects/Tetris/Tetris/src/GameLayer.cxx
 
 CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.i: cmake_force
@@ -313,7 +329,7 @@ CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o: ../Tetris/src/TetrisApp
 CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx
 CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx.gch
 CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o: CMakeFiles/a.out.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -MD -MT CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o -MF CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o.d -o CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o -c /home/nier/Documents/Projects/Tetris/Tetris/src/TetrisApplication.cxx
 
 CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.i: cmake_force
@@ -324,6 +340,22 @@ CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -S /home/nier/Documents/Projects/Tetris/Tetris/src/TetrisApplication.cxx -o CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.s
 
+CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o: CMakeFiles/a.out.dir/flags.make
+CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o: ../Tetris/src/Tetromino.cxx
+CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx
+CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o: CMakeFiles/a.out.dir/cmake_pch.hxx.gch
+CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o: CMakeFiles/a.out.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -MD -MT CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o -MF CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o.d -o CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o -c /home/nier/Documents/Projects/Tetris/Tetris/src/Tetromino.cxx
+
+CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -E /home/nier/Documents/Projects/Tetris/Tetris/src/Tetromino.cxx > CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.i
+
+CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/nier/Documents/Projects/Tetris/build/CMakeFiles/a.out.dir/cmake_pch.hxx -S /home/nier/Documents/Projects/Tetris/Tetris/src/Tetromino.cxx -o CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.s
+
 # Object files for target a.out
 a_out_OBJECTS = \
 "CMakeFiles/a.out.dir/Automata/src/Core/Application.cxx.o" \
@@ -331,16 +363,18 @@ a_out_OBJECTS = \
 "CMakeFiles/a.out.dir/Automata/src/Core/Window.cxx.o" \
 "CMakeFiles/a.out.dir/Automata/src/Graphics/BufferLayout.cxx.o" \
 "CMakeFiles/a.out.dir/Automata/src/Graphics/ElementBuffer.cxx.o" \
+"CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o" \
 "CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o" \
 "CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o" \
 "CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o" \
-"CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o" \
 "CMakeFiles/a.out.dir/Automata/src/Graphics/VertexArray.cxx.o" \
 "CMakeFiles/a.out.dir/Automata/src/Graphics/VertexBuffer.cxx.o" \
 "CMakeFiles/a.out.dir/Automata/src/Utils/FileIO.cxx.o" \
 "CMakeFiles/a.out.dir/Automata/vendor/stb_image/stb_image.cxx.o" \
+"CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o" \
 "CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o" \
-"CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o"
+"CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o" \
+"CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o"
 
 # External object files for target a.out
 a_out_EXTERNAL_OBJECTS =
@@ -351,22 +385,24 @@ a_out_EXTERNAL_OBJECTS =
 ../a.out: CMakeFiles/a.out.dir/Automata/src/Core/Window.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Automata/src/Graphics/BufferLayout.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Automata/src/Graphics/ElementBuffer.cxx.o
+../a.out: CMakeFiles/a.out.dir/Automata/src/Graphics/GLTypes.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Automata/src/Graphics/Renderer.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Automata/src/Graphics/Shader.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Automata/src/Graphics/Texture.cxx.o
-../a.out: CMakeFiles/a.out.dir/Automata/src/Graphics/Types.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Automata/src/Graphics/VertexArray.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Automata/src/Graphics/VertexBuffer.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Automata/src/Utils/FileIO.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Automata/vendor/stb_image/stb_image.cxx.o
+../a.out: CMakeFiles/a.out.dir/Tetris/src/Board.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Tetris/src/GameLayer.cxx.o
 ../a.out: CMakeFiles/a.out.dir/Tetris/src/TetrisApplication.cxx.o
+../a.out: CMakeFiles/a.out.dir/Tetris/src/Tetromino.cxx.o
 ../a.out: CMakeFiles/a.out.dir/build.make
 ../a.out: /usr/local/lib/libglfw3.a
 ../a.out: /usr/lib/x86_64-linux-gnu/librt.a
 ../a.out: /usr/lib/x86_64-linux-gnu/libm.so
 ../a.out: CMakeFiles/a.out.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable ../a.out"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nier/Documents/Projects/Tetris/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable ../a.out"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/a.out.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

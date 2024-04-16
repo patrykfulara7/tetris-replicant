@@ -17,7 +17,9 @@
 #include <fstream>
 
 #include <memory>
+#include <functional>
 
 #include <string>
 #include <vector>
+#include <array>
 #include <unordered_map>
