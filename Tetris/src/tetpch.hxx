@@ -6,6 +6,8 @@
 
 #include <algorithm>
 #include <memory>
+#include <numeric>
+#include <random>
 
 #include <vector>
 #include <array>

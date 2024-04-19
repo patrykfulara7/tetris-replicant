@@ -3,15 +3,16 @@
 GameLayer::GameLayer()
     : tetromino(0, 0, INITIAL_POSITION), board(10, 20)
 {
-    for (uint8_t i = 0; i < 8; i++)
-        blockTextures[i] = Automata::Texture::Create("res/tex/" + std::to_string(i) + ".png");
-
-    tetromino.SetTetromino(std::chrono::system_clock::now().time_since_epoch().count() % 7);
-    board.AddTetromino(tetromino);
 }
 
 void GameLayer::OnAttach()
 {
+    blockTextures.reserve(8);
+    for (uint8_t i = 0; i < 8; i++)
+        blockTextures.emplace_back("res/tex/" + std::to_string(i) + ".png");
+
+    tetromino.SetTetromino(sequence.GetNumber());
+    board.AddTetromino(tetromino);
 }
 
 void GameLayer::OnDetach()
@@ -23,7 +24,8 @@ void GameLayer::OnEvent(Automata::Event& event)
     if (event.GetEventType() != Automata::EventType::KeyPressed)
         return;
 
-    auto key = dynamic_cast<Automata::KeyPressedEvent*>(&event)->GetKeyCode();
+    auto keyPressedEvent = *dynamic_cast<Automata::KeyPressedEvent*>(&event);
+    auto key = keyPressedEvent.GetKeyCode();
 
     switch (key)
     {
@@ -63,6 +65,9 @@ void GameLayer::OnUpdate(double deltaTime)
 
     switch (nextAction)
     {
+        case Action::None:
+            break;
+
         case Action::MoveDown:
             tetromino.SetPosition(tetromino.GetPosition() + glm::ivec2(0, 1));
             break;
@@ -82,15 +87,10 @@ void GameLayer::OnUpdate(double deltaTime)
         case Action::RotateRight:
             tetromino.SetRotation((tetromino.GetRotation() + 3) % 4);
             break;
-
-        case Action::None:
-            break;
     }
 
     if (board.DoesTetrominoFit(tetromino))
-    {
         board.AddTetromino(tetromino);
-    }
     else
     {
         tetromino.SetPosition(previousPosition);
@@ -99,9 +99,15 @@ void GameLayer::OnUpdate(double deltaTime)
 
         if (nextAction == Action::MoveDown)
         {
-            tetromino.SetTetromino(std::chrono::system_clock::now().time_since_epoch().count() % 7);
+            board.ClearRows();
+
+            tetromino.SetTetromino(sequence.GetNumber());
             tetromino.SetPosition(INITIAL_POSITION);
             tetromino.SetRotation(0);
+
+            if (not board.DoesTetrominoFit(tetromino))
+                Automata::Application::Close();
+
             board.AddTetromino(tetromino);
         }
     }

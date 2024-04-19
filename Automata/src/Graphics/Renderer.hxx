@@ -12,6 +12,6 @@ namespace Automata
         static void Init(int width, int height);
 
         static void Clear();
-        static void Draw(const glm::vec2& position, const std::shared_ptr<Texture>& texture);
+        static void Draw(const glm::vec2& position, const Texture& texture);
     };
 }

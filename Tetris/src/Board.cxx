@@ -11,7 +11,7 @@ Board::Board(uint16_t width, uint16_t height)
     }
 }
 
-static int Rotate(uint8_t x, uint8_t rotation)
+int Board::Rotate(uint8_t x, uint8_t rotation)
 {
     switch (rotation)
     {
@@ -62,3 +62,17 @@ bool Board::DoesTetrominoFit(const Tetromino& tetromino)
 
     return true;
 }
+
+void Board::ClearRows()
+{
+    uint16_t offset = 0;
+
+    for (int32_t i = height - 1; i >= 0; i--)
+    {
+        if (std::all_of(board[i].begin(), board[i].end(), [](uint8_t x) { return x > 0; }))
+            offset++;
+        else
+            board[i + offset] = board[i];
+    }
+}
+

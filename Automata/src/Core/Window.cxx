@@ -40,6 +40,8 @@ namespace Automata
 
         glfwSetKeyCallback(data.windowHandle, [](GLFWwindow* window, int key, int scancode, int action, int mods)
         {
+            (void)scancode, (void)mods;
+
             auto data = static_cast<WindowData*>(glfwGetWindowUserPointer(window));
 
             switch (action)

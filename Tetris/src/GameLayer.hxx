@@ -4,6 +4,7 @@
 
 #include "Tetromino.hxx"
 #include "Board.hxx"
+#include "Sequence.hxx"
 
 class GameLayer : public Automata::Layer
 {
@@ -12,8 +13,9 @@ private:
 
     Tetromino tetromino;
     Board board;
+    Sequence sequence;
 
-    std::array<std::shared_ptr<Automata::Texture>, 8> blockTextures;
+    std::vector<Automata::Texture> blockTextures;
 
     enum class Action
     {

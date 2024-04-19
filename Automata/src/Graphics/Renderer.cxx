@@ -49,15 +49,15 @@ namespace Automata
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
-    void Renderer::Draw(const glm::vec2& position, const std::shared_ptr<Texture>& texture)
+    void Renderer::Draw(const glm::vec2& position, const Texture& texture)
     {
         glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(position, 0.0f)) *
-                          glm::scale(glm::mat4(1.0f), glm::vec3(texture->GetWidth(), texture->GetHeight(), 1.0f));
+                          glm::scale(glm::mat4(1.0f), glm::vec3(texture.GetWidth(), texture.GetHeight(), 1.0f));
 
         shader->Bind();
         shader->SetMatrix4fv("model", model);
 
-        texture->Bind(0);
+        texture.Bind(0);
 
         vertexArray->Bind();
         glDrawElements(GL_TRIANGLES, vertexArray->GetElementBuffer()->GetCount(), vertexArray->GetElementBuffer()->GetType(), 0);
