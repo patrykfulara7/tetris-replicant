@@ -17,6 +17,8 @@ private:
 
     std::vector<Automata::Texture> blockTextures;
 
+    std::thread fall;
+
     enum class Action
     {
         None = 0,
@@ -25,6 +27,9 @@ private:
     };
 
     Action nextAction = Action::None;
+
+private:
+    void Fall();
 
 public:
     GameLayer();

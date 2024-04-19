@@ -5,6 +5,17 @@ GameLayer::GameLayer()
 {
 }
 
+void GameLayer::Fall()
+{
+    using namespace std::chrono_literals;
+
+    while (2137)
+    {
+        std::this_thread::sleep_for(1.5s);
+        nextAction = Action::MoveDown;
+    }
+}
+
 void GameLayer::OnAttach()
 {
     blockTextures.reserve(8);
@@ -13,10 +24,13 @@ void GameLayer::OnAttach()
 
     tetromino.SetTetromino(sequence.GetNumber());
     board.AddTetromino(tetromino);
+
+    fall = std::thread(&GameLayer::Fall, this);
 }
 
 void GameLayer::OnDetach()
 {
+    fall.detach();
 }
 
 void GameLayer::OnEvent(Automata::Event& event)

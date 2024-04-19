@@ -26,8 +26,8 @@ namespace Automata
         void PushLayer(Layer *layer);
         void OnEvent(Event& event);
 
-        void Run();
         static void Close();
+        void Run();
 
         static inline Application& Get() { return *instance; }
         inline Window& GetWindow() { return *window; }
