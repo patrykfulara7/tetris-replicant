@@ -3,8 +3,7 @@
 Simple tetris replica in C++ and OpenGL.
 
 ## Dependencies
-- [glfw](https://github.com/glfw/glfw)
-- [glew](https://github.com/nigels-com/glew)
+You need [glfw](https://github.com/glfw/glfw) and [glew](https://github.com/nigels-com/glew)
 
 ## Building
 
