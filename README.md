@@ -12,5 +12,5 @@ You need CMake inorder to build the application.
 To build and compile just type
 ```
 cmake -S . -B build
-cmake --build
+cmake --build build
 ```
