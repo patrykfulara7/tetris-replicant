@@ -1,6 +1,6 @@
 # Tetris Replica
 
-Simple tetris replica in C++ and OpenGL.
+Simple replica of Tetris in C++ with OpenGL.
 
 ## Dependencies
 You need [glfw](https://github.com/glfw/glfw) and [glew](https://github.com/nigels-com/glew).
