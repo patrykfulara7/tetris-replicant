@@ -3,7 +3,7 @@
 Simple replica of Tetris in C++ with OpenGL.
 
 ## Dependencies
-You need [glfw](https://github.com/glfw/glfw), [glew](https://github.com/nigels-com/glew) and CMake.
+You need [GLFW](https://github.com/glfw/glfw), [GLEW](https://github.com/nigels-com/glew) and CMake.
 
 ## Building
 
