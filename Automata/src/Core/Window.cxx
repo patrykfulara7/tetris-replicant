@@ -9,12 +9,19 @@ namespace Automata
     Window::Window(int width, int height, const std::string& title)
         : data(width, height, title)
     {
-        AM_ASSERT(glfwInit() == GLFW_TRUE);
+        {
+            int result = glfwInit();
+            AM_ASSERT(result == GLFW_TRUE);
+        }
 
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+        glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+
+#ifdef AM_DEBUG
         glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
+#endif
 
         data.windowHandle = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
         
@@ -23,7 +30,13 @@ namespace Automata
         glfwMakeContextCurrent(data.windowHandle);
         glfwSwapInterval(1);
 
-        AM_ASSERT(glewInit() == GL_FALSE);
+        {
+            GLenum result = glewInit();
+            AM_ASSERT(result == GL_FALSE);
+        }
+
+#ifdef AM_DEBUG
+
         std::cout << glGetString(GL_VERSION) << std::endl;
 
         glEnable(GL_DEBUG_CALLBACK_FUNCTION);
@@ -35,6 +48,8 @@ namespace Automata
             abort();
         },
         nullptr);
+
+#endif
 
         glfwSetWindowUserPointer(data.windowHandle, &data);
 

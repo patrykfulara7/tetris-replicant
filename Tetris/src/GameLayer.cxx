@@ -1,144 +1,32 @@
 #include "GameLayer.hxx"
+#include "StateIdentifiers.hxx"
+#include "GameState.hxx"
 
 GameLayer::GameLayer()
-    : tetromino(0, 0, INITIAL_POSITION), board(10, 20)
 {
-}
-
-void GameLayer::Fall()
-{
-    using namespace std::chrono_literals;
-
-    while (2137)
-    {
-        std::this_thread::sleep_for(1.5s);
-        nextAction = Action::MoveDown;
-    }
 }
 
 void GameLayer::OnAttach()
 {
-    blockTextures.reserve(8);
-    for (uint8_t i = 0; i < 8; i++)
-        blockTextures.emplace_back("res/tex/" + std::to_string(i) + ".png");
-
-    tetromino.SetTetromino(sequence.GetNumber());
-    board.AddTetromino(tetromino);
-
-    fall = std::thread(&GameLayer::Fall, this);
+    stateManager.RegisterState<GameState>(StateID::GAME);
+    stateManager.PushState(StateID::GAME);
 }
 
 void GameLayer::OnDetach()
 {
-    fall.detach();
 }
 
 void GameLayer::OnEvent(Automata::Event& event)
 {
-    if (event.GetEventType() != Automata::EventType::KeyPressed)
-        return;
-
-    auto keyPressedEvent = *dynamic_cast<Automata::KeyPressedEvent*>(&event);
-    auto key = keyPressedEvent.GetKeyCode();
-
-    switch (key)
-    {
-        case Automata::Key::C:
-            Automata::Application::Close();
-            break;
-
-        case Automata::Key::J:
-            nextAction = Action::MoveDown;
-            break;
-
-        case Automata::Key::H:
-            nextAction = Action::MoveLeft;
-			break;
-
-        case Automata::Key::L:
-            nextAction = Action::MoveRight;
-			break;
-
-        case Automata::Key::Q:
-            nextAction = Action::RotateLeft;
-			break;
-
-        case Automata::Key::E:
-            nextAction = Action::RotateRight;
-			break;
-    }
+    stateManager.OnEvent(event);
 }
 
 void GameLayer::OnUpdate(double deltaTime)
 {
-    (void)deltaTime;
-
-    board.RemoveTetromino(tetromino);
-    glm::ivec2 previousPosition = tetromino.GetPosition();
-    uint8_t previousRotation = tetromino.GetRotation();
-
-    switch (nextAction)
-    {
-        case Action::None:
-            break;
-
-        case Action::MoveDown:
-            tetromino.SetPosition(tetromino.GetPosition() + glm::ivec2(0, 1));
-            break;
-
-        case Action::MoveLeft:
-            tetromino.SetPosition(tetromino.GetPosition() + glm::ivec2(-1, 0));
-            break;
-
-        case Action::MoveRight:
-            tetromino.SetPosition(tetromino.GetPosition() + glm::ivec2(1, 0));
-            break;
-
-        case Action::RotateLeft:
-            tetromino.SetRotation((tetromino.GetRotation() + 1) % 4);
-            break;
-
-        case Action::RotateRight:
-            tetromino.SetRotation((tetromino.GetRotation() + 3) % 4);
-            break;
-    }
-
-    if (board.DoesTetrominoFit(tetromino))
-        board.AddTetromino(tetromino);
-    else
-    {
-        tetromino.SetPosition(previousPosition);
-        tetromino.SetRotation(previousRotation);
-        board.AddTetromino(tetromino);
-
-        if (nextAction == Action::MoveDown)
-        {
-            board.ClearRows();
-
-            tetromino.SetTetromino(sequence.GetNumber());
-            tetromino.SetPosition(INITIAL_POSITION);
-            tetromino.SetRotation(0);
-
-            if (not board.DoesTetrominoFit(tetromino))
-                Automata::Application::Close();
-
-            board.AddTetromino(tetromino);
-        }
-    }
-
-    nextAction = Action::None;
+    stateManager.OnUpdate(deltaTime);
 }
 
 void GameLayer::OnRender()
 {
-    for (uint8_t i = 0; i < board.GetHeight(); i++)
-    {
-        for (uint8_t j = 0; j < board.GetWidth(); j++)
-        {
-            if (board[i][j] != 0)
-            {
-                Automata::Renderer::Draw(glm::vec2(j * 32.0f, i * 32.0f), blockTextures[board[i][j] - 1]);
-            }
-        }
-    }
+    stateManager.OnRender();
 }
