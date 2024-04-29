@@ -12,3 +12,8 @@ To build and compile just type
 cmake -S . -B build
 cmake --build build
 ```
+
+## Controls
+| Left | Down | Right | Turn Left | Turn Rigth | Close |
+| ---- | ---- | ----- | --------- | ---------- | ----- |
+| H    | J    | L     | Q         | E          | C     |
