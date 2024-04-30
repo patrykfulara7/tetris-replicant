@@ -14,6 +14,6 @@ cmake --build build
 ```
 
 ## Controls
-| Left | Down | Right | Turn Left | Turn Right | Close |
-| ---- | ---- | ----- | --------- | ---------- | ----- |
-| H    | J    | L     | Q         | E          | C     |
+| Left | Down | Right | Rotate Left | Rotate Right | Close |
+| ---- | ---- | ----- | ----------- | ------------ | ----- |
+| H    | J    | L     | Q           | E            | C     |
