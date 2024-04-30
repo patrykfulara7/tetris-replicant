@@ -5,7 +5,7 @@ GameState::GameState(StateManager& stateManager)
 {
     blockTextures.reserve(8);
     for (uint8_t i = 0; i < 8; i++)
-        blockTextures.emplace_back("res/tex/" + std::to_string(i) + ".png");
+        blockTextures.emplace_back("Tetris/res/tex/" + std::to_string(i) + ".png");
 
     tetromino.SetTetromino(sequence.GetNumber());
     board.AddTetromino(tetromino);
