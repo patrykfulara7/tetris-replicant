@@ -12,7 +12,7 @@ namespace Automata
     {
         projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
 
-        shader = Shader::Create("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
+        shader = Shader::Create("Automata/res/shaders/vertex.glsl", "Automata/res/shaders/fragment.glsl");
 
         shader->Bind();
         shader->SetMatrix4fv("projection", projection);
