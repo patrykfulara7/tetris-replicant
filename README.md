@@ -3,7 +3,7 @@
 Simple replica of Tetris written in C++ with OpenGL.
 
 <p align="center">
-	<img width="320" height="540" src="https://imgur.com/tpitYAX.png">
+	<img width="320" height="640" src="https://imgur.com/tpitYAX.png">
 </p>
 
 ## Dependencies
