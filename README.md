@@ -2,6 +2,10 @@
 
 Simple replica of Tetris written in C++ with OpenGL.
 
+<p align="center">
+	<img width="320" height="540" src="https://imgur.com/tpitYAX.png">
+</p>
+
 ## Dependencies
 You need [GLFW](https://github.com/glfw/glfw), [GLEW](https://github.com/nigels-com/glew) and CMake.
 
