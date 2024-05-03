@@ -4,10 +4,8 @@
 
 #include "Utils/FileIO.hxx"
 
-namespace Automata
-{
-    Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath)
-    {
+namespace Automata {
+    Shader::Shader(const std::string &vertexPath, const std::string &fragmentPath) {
         std::unordered_map<GLenum, std::string> sources;
 
         sources[GL_VERTEX_SHADER] = FileIO::ReadFile(vertexPath);
@@ -26,8 +24,7 @@ namespace Automata
 
         glCompileShader(vertexShader);
         glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &compiled);
-        if (compiled == GL_FALSE)
-        {
+        if (compiled == GL_FALSE) {
             GLint length;
             glGetShaderiv(vertexShader, GL_INFO_LOG_LENGTH, &length);
 
@@ -41,8 +38,7 @@ namespace Automata
 
         glCompileShader(fragmentShader);
         glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &compiled);
-        if (compiled == GL_FALSE)
-        {
+        if (compiled == GL_FALSE) {
             GLint length;
             glGetShaderiv(fragmentShader, GL_INFO_LOG_LENGTH, &length);
 
@@ -62,8 +58,7 @@ namespace Automata
         glLinkProgram(ID);
 
         glGetProgramiv(ID, GL_LINK_STATUS, &compiled);
-        if (compiled == GL_FALSE)
-        {
+        if (compiled == GL_FALSE) {
             GLint length;
             glGetProgramiv(fragmentShader, GL_INFO_LOG_LENGTH, &length);
 
@@ -82,30 +77,25 @@ namespace Automata
         glDeleteShader(fragmentShader);
     }
 
-    Shader::~Shader()
-    {
+    Shader::~Shader() {
         glDeleteProgram(ID);
     }
 
-    void Shader::Bind() const
-    {
+    void Shader::Bind() const {
         glUseProgram(ID);
     }
 
-    void Shader::Unbind() const
-    {
+    void Shader::Unbind() const {
         glUseProgram(0);
     }
 
-    void Shader::Set1i(const std::string& name, GLint v0)
-    {
+    void Shader::Set1i(const std::string &name, GLint v0) {
         GLint location = glGetUniformLocation(ID, name.data());
         glUniform1i(location, v0);
     }
 
-    void Shader::SetMatrix4fv(const std::string& name, const glm::mat4& value)
-    {
+    void Shader::SetMatrix4fv(const std::string &name, const glm::mat4 &value) {
         GLint location = glGetUniformLocation(ID, name.data());
         glUniformMatrix4fv(location, 1, GL_FALSE, &value[0][0]);
     }
-}
+} // namespace Automata

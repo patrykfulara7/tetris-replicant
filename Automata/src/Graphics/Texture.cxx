@@ -3,10 +3,8 @@
 
 #include "Graphics/Texture.hxx"
 
-namespace Automata
-{
-    Texture::Texture(const std::string& path)
-    {
+namespace Automata {
+    Texture::Texture(const std::string &path) {
         int channels;
         unsigned char *data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 
@@ -22,21 +20,16 @@ namespace Automata
 
         GLint internalFormat;
         GLenum format;
-        switch (channels)
-        {
-            case 3:
-            {
+        switch (channels) {
+            case 3: {
                 internalFormat = GL_RGB8;
                 format = GL_RGB;
-            }
-            break;
+            } break;
 
-            case 4:
-            {
+            case 4: {
                 internalFormat = GL_RGBA8;
                 format = GL_RGBA;
-            }
-            break;
+            } break;
         }
 
         glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, GL_UNSIGNED_BYTE, data);
@@ -44,19 +37,16 @@ namespace Automata
         stbi_image_free(data);
     }
 
-    Texture::~Texture()
-    {
+    Texture::~Texture() {
         glDeleteTextures(1, &ID);
     }
 
-    void Texture::Bind(GLuint slot) const
-    {
+    void Texture::Bind(GLuint slot) const {
         glActiveTexture(GL_TEXTURE0 + slot);
         glBindTexture(GL_TEXTURE_2D, ID);
     }
 
-    void Texture::Unbind() const
-    {
+    void Texture::Unbind() const {
         glBindTexture(GL_TEXTURE_2D, 0);
     }
-}
+} // namespace Automata

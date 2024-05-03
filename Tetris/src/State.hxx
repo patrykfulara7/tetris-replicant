@@ -6,20 +6,19 @@
 
 class StateManager;
 
-class State
-{
-private:
+class State {
+  private:
     StateManager *stateManager = nullptr;
 
-protected:
+  protected:
     void PushState(StateID stateID);
     void PopState();
 
-public:
-    State(StateManager& stateManager);
+  public:
+    State(StateManager &stateManager);
     virtual ~State() = default;
 
-    virtual void OnEvent(Automata::Event& event) = 0; 
+    virtual void OnEvent(Automata::Event &event) = 0;
     virtual void OnUpdate(double deltaTime) = 0;
     virtual void OnRender() = 0;
 };

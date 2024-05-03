@@ -4,21 +4,15 @@
 
 #include "GameLayer.hxx"
 
-namespace Automata
-{
-    class TetrisApplication : public Application
-    {
-    public:
-        TetrisApplication()
-            : Application(10 * 32, 20 * 32, "Tetris")
-        {
+namespace Automata {
+    class TetrisApplication : public Application {
+      public:
+        TetrisApplication() : Application(10 * 32, 20 * 32, "Tetris") {
             PushLayer(new GameLayer());
         }
     };
 
-    Application* CreateApplication()
-    {
+    Application *CreateApplication() {
         return new TetrisApplication();
     }
-}
-
+} // namespace Automata

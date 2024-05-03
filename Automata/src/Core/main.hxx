@@ -4,9 +4,7 @@
 
 #include "Core/Application.hxx"
 
-int
-main(void)
-{
+int main(void) {
     auto application = Automata::CreateApplication();
     application->Run();
     delete application;

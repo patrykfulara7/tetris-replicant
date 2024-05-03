@@ -2,35 +2,29 @@
 
 #include "ampch.hxx"
 
-namespace Automata
-{
-    class BufferLayout
-    {
-    private:
-        struct Attribute
-        {
+namespace Automata {
+    class BufferLayout {
+      private:
+        struct Attribute {
             GLint size = 0;
             GLenum type = 0;
             GLboolean normalized = 0;
 
-            Attribute(GLint size, GLenum type, GLboolean normalized)
-                : size(size), type(type), normalized(normalized)
-            {
+            Attribute(GLint size, GLenum type, GLboolean normalized) : size(size), type(type), normalized(normalized) {
             }
         };
 
         std::vector<Attribute> bufferLayout;
         GLsizei stride = 0;
 
-    public:
+      public:
         void Enable() const;
 
-        void PushAttribute(const Attribute& attribute);
+        void PushAttribute(const Attribute &attribute);
         void PushAttribute(GLint size, GLenum type, GLboolean normalized);
 
-        static inline std::shared_ptr<BufferLayout> Create()
-        {
+        static inline std::shared_ptr<BufferLayout> Create() {
             return std::make_shared<BufferLayout>();
         }
     };
-}
+} // namespace Automata

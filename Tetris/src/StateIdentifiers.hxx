@@ -2,9 +2,8 @@
 
 #include "tetpch.hxx"
 
-enum class StateID : uint8_t
-{
-    NONE = 0,
-    GAME,
-    GAMEOVER
+enum class StateID : uint8_t {
+    None = 0,
+    Game,
+    GameOver
 };

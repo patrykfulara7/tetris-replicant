@@ -2,12 +2,10 @@
 
 #include "ampch.hxx"
 
-namespace Automata
-{
+namespace Automata {
     using KeyCode = int;
 
-    enum Key : KeyCode
-    {
+    enum Key : KeyCode {
         C = GLFW_KEY_C,
         J = GLFW_KEY_J,
         H = GLFW_KEY_H,
@@ -15,4 +13,4 @@ namespace Automata
         Q = GLFW_KEY_Q,
         E = GLFW_KEY_E
     };
-}
+} // namespace Automata

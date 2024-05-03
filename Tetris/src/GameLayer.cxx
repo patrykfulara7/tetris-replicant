@@ -1,32 +1,26 @@
 #include "GameLayer.hxx"
-#include "StateIdentifiers.hxx"
 #include "GameState.hxx"
+#include "StateIdentifiers.hxx"
 
-GameLayer::GameLayer()
-{
+GameLayer::GameLayer() {
 }
 
-void GameLayer::OnAttach()
-{
-    stateManager.RegisterState<GameState>(StateID::GAME);
-    stateManager.PushState(StateID::GAME);
+void GameLayer::OnAttach() {
+    stateManager.RegisterState<GameState>(StateID::Game);
+    stateManager.PushState(StateID::Game);
 }
 
-void GameLayer::OnDetach()
-{
+void GameLayer::OnDetach() {
 }
 
-void GameLayer::OnEvent(Automata::Event& event)
-{
+void GameLayer::OnEvent(Automata::Event &event) {
     stateManager.OnEvent(event);
 }
 
-void GameLayer::OnUpdate(double deltaTime)
-{
+void GameLayer::OnUpdate(double deltaTime) {
     stateManager.OnUpdate(deltaTime);
 }
 
-void GameLayer::OnRender()
-{
+void GameLayer::OnRender() {
     stateManager.OnRender();
 }

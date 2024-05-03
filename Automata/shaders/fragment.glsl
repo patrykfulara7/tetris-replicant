@@ -7,7 +7,6 @@ in vec2 TexturePosition;
 uniform sampler2D slot;
 
 void
-main(void)
-{
+main(void) {
     oColor = texture(slot, TexturePosition);
 }

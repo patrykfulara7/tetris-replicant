@@ -9,8 +9,7 @@ uniform mat4 projection;
 uniform mat4 model; 
 
 void
-main(void)
-{
+main(void) {
     TexturePosition = iTexturePosition;
 
     gl_Position = projection * model * vec4(iPosition, 0.0, 1.0);

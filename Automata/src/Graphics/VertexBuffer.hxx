@@ -2,23 +2,20 @@
 
 #include "ampch.hxx"
 
-namespace Automata
-{
-    class VertexBuffer
-    {
-    private:
+namespace Automata {
+    class VertexBuffer {
+      private:
         GLuint ID = 0;
 
-    public:
+      public:
         VertexBuffer(GLsizeiptr size, const GLvoid *data, GLenum usage);
         ~VertexBuffer();
 
         void Bind() const;
         void Unbind() const;
 
-        static inline std::shared_ptr<VertexBuffer> Create(GLsizeiptr size, const GLvoid *data, GLenum usage)
-        {
+        static inline std::shared_ptr<VertexBuffer> Create(GLsizeiptr size, const GLvoid *data, GLenum usage) {
             return std::make_shared<VertexBuffer>(size, data, usage);
         }
     };
-}
+} // namespace Automata

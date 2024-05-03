@@ -9,8 +9,8 @@
 #include <numeric>
 #include <random>
 
-#include <vector>
 #include <array>
+#include <vector>
 
 #include <chrono>
 

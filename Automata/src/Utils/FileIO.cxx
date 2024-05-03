@@ -2,10 +2,8 @@
 
 #include "Utils/FileIO.hxx"
 
-namespace Automata
-{
-    std::string FileIO::ReadFile(const std::string& path)
-    {
+namespace Automata {
+    std::string FileIO::ReadFile(const std::string &path) {
         std::ifstream fileStream(path);
         std::stringstream stringStream;
         std::string line;
@@ -19,4 +17,4 @@ namespace Automata
 
         return stringStream.str();
     }
-};
+}; // namespace Automata

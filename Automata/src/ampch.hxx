@@ -12,14 +12,14 @@
 #include <cassert>
 #include <cstdint>
 
+#include <fstream>
 #include <iostream>
 #include <sstream>
-#include <fstream>
 
-#include <memory>
 #include <functional>
+#include <memory>
 
-#include <string>
-#include <vector>
 #include <array>
+#include <string>
 #include <unordered_map>
+#include <vector>
