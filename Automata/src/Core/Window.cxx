@@ -28,7 +28,7 @@ namespace Automata {
         glfwSwapInterval(1);
 
         {
-            GLenum result = glewInit();
+            GLenum result = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
             AM_ASSERT(result == GL_FALSE);
         }
 
