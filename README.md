@@ -6,12 +6,9 @@ Simple replica of Tetris written in C++ with OpenGL.
 	<img width="320" height="640" src="https://imgur.com/tpitYAX.png">
 </p>
 
-## Dependencies
-You need [GLFW](https://github.com/glfw/glfw), [GLEW](https://github.com/nigels-com/glew) and CMake.
-
 ## Building
 
-To build and compile just type
+To build and compile with [CMake](https://github.com/Kitware/CMake) just type
 ```
 cmake -S . -B build
 cmake --build build
