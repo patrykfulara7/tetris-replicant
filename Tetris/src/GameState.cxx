@@ -12,6 +12,7 @@ GameState::GameState(StateManager &stateManager) : State(stateManager), tetromin
 }
 
 GameState::~GameState() {
+    // Bartek tu był.
     fall.detach();
 }
 
