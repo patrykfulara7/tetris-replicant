@@ -3,6 +3,14 @@ project(automata)
 add_library(${PROJECT_NAME} STATIC)
 
 add_subdirectory(src)
-target_include_directories(${PROJECT_NAME} PUBLIC src)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC ${LIBS})
+target_include_directories(${PROJECT_NAME}
+    PUBLIC
+    src
+    include
+)
+
+target_link_libraries(${PROJECT_NAME}
+    PUBLIC
+    ${THIRD_PARTY_LIBRARIES}
+)
