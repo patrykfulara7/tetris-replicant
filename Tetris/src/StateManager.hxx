@@ -10,7 +10,8 @@ class StateManager {
     std::unordered_map<StateID, std::function<std::unique_ptr<State>()>> stateConstructors;
 
   public:
-    template <typename T> void RegisterState(StateID state);
+    template <typename T>
+    void RegisterState(StateID state);
     void PushState(StateID state);
     void PopState();
 
@@ -19,6 +20,7 @@ class StateManager {
     void OnRender();
 };
 
-template <typename T> void StateManager::RegisterState(StateID state) {
+template <typename T>
+void StateManager::RegisterState(StateID state) {
     stateConstructors[state] = [this]() { return std::unique_ptr<State>(new T(*this)); };
 }

@@ -3,7 +3,8 @@
 GameState::GameState(StateManager &stateManager) : State(stateManager), tetromino(0, 0, INITIAL_POSITION), board(10, 20) {
     blockTextures.reserve(8);
     for (uint8_t i = 0; i < 8; i++)
-        blockTextures.emplace_back("Tetris/res/tex/" + std::to_string(i) + ".png");
+        // TODO: Fix relative path
+        blockTextures.emplace_back("../../Tetris/res/tex/" + std::to_string(i) + ".png");
 
     tetromino.SetTetromino(sequence.GetNumber());
     board.AddTetromino(tetromino);

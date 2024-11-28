@@ -1,3 +1,13 @@
-file(GLOB CORE_SRCS *.cxx *.hxx)
-
-target_sources(${AUTOMATA_PRJ_NAME} PRIVATE ${CORE_SRCS})
+target_sources(${PROJECT_NAME}
+    PRIVATE
+    Application.cxx
+    Application.hxx
+    Core.hxx
+    Input.cxx
+    Input.hxx
+    KeyCodes.hxx
+    Layer.hxx
+    Window.cxx
+    Window.hxx
+    main.hxx
+)

@@ -10,7 +10,8 @@ namespace Automata {
     void Renderer::Init(int width, int height) {
         projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
 
-        shader = Shader::Create("Automata/shaders/vertex.glsl", "Automata/shaders/fragment.glsl");
+        // TODO: Fix relative paths
+        shader = Shader::Create("../../Automata/shaders/vertex.vert", "../../Automata/shaders/fragment.frag");
 
         shader->Bind();
         shader->SetMatrix4fv("projection", projection);
@@ -18,7 +19,7 @@ namespace Automata {
 
         vertexArray = VertexArray::Create();
 
-        std::array<GLfloat, 16> vertcies = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f};
+        std::array<GLfloat, 16> vertcies = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f };
         auto vertexBuffer = VertexBuffer::Create(vertcies.size() * sizeof(GLfloat), vertcies.data(), GL_STATIC_DRAW);
         vertexArray->SetVertexBuffer(vertexBuffer);
 
@@ -27,7 +28,7 @@ namespace Automata {
         bufferLayout->PushAttribute(2, GL_FLOAT, GL_FALSE);
         vertexArray->SetBufferLayout(bufferLayout);
 
-        std::array<GLuint, 6> indicies = {0, 1, 2, 1, 2, 3};
+        std::array<GLuint, 6> indicies = { 0, 1, 2, 1, 2, 3 };
         auto elementBuffer = ElementBuffer::Create(indicies.size() * sizeof(GLuint), indicies.data(), GL_STATIC_DRAW, GL_UNSIGNED_INT);
         vertexArray->SetElementBuffer(elementBuffer);
     }

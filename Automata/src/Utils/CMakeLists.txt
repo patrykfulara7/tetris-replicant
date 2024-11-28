@@ -1,3 +1,5 @@
-file(GLOB UTILS_SRCS *.cxx *.hxx)
-
-target_sources(${AUTOMATA_PRJ_NAME} PRIVATE ${UTILS_SRCS})
+target_sources(${PROJECT_NAME}
+    PRIVATE
+    FileIO.cxx
+    FileIO.hxx
+)
