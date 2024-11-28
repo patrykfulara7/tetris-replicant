@@ -10,8 +10,7 @@ namespace Automata {
     void Renderer::Init(int width, int height) {
         projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
 
-        // TODO: Fix relative paths
-        shader = Shader::Create("../../Automata/shaders/vertex.vert", "../../Automata/shaders/fragment.frag");
+        shader = Shader::Create(SOURCE_DIRECTORY "/Automata/shaders/vertex.vert", SOURCE_DIRECTORY "/Automata/shaders/fragment.frag");
 
         shader->Bind();
         shader->SetMatrix4fv("projection", projection);

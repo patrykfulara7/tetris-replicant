@@ -18,7 +18,10 @@ target_sources(${PROJECT_NAME}
     Tetromino.hxx
     tetpch.hxx
 )
+
 target_precompile_headers(${PROJECT_NAME}
     PRIVATE
     tetpch.hxx
 )
+
+configure_file(CMakePlaceholders.hxx.in ${CMAKE_CURRENT_LIST_DIR}/CMakePlaceholders.hxx)
