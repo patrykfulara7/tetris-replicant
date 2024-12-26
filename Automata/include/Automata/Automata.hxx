@@ -1,6 +1,5 @@
 #pragma once
 
-// #include "../src/Core/main.hxx"
 #include "Core/Application.hxx"
 #include "Core/Input.hxx"
 #include "Core/KeyCodes.hxx"

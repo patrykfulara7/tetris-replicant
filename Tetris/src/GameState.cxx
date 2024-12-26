@@ -2,8 +2,9 @@
 
 GameState::GameState(StateManager &stateManager) : State(stateManager), tetromino(0, 0, INITIAL_POSITION), board(10, 20) {
     blockTextures.reserve(8);
-    for (uint8_t i = 0; i < 8; i++)
+    for (uint8_t i = 0; i < 8; i++) {
         blockTextures.emplace_back(SOURCE_DIRECTORY "/Tetris/res/tex/" + std::to_string(i) + ".png");
+    }
 
     tetromino.SetTetromino(sequence.GetNumber());
     board.AddTetromino(tetromino);
@@ -26,8 +27,9 @@ void GameState::Fall() {
 }
 
 void GameState::OnEvent(Automata::Event &event) {
-    if (event.GetEventType() != Automata::EventType::KeyPressed)
+    if (event.GetEventType() != Automata::EventType::KeyPressed) {
         return;
+    }
 
     auto keyPressedEvent = *dynamic_cast<Automata::KeyPressedEvent *>(&event);
     auto key = keyPressedEvent.GetKeyCode();
@@ -91,9 +93,9 @@ void GameState::OnUpdate(double deltaTime) {
         } break;
     }
 
-    if (board.DoesTetrominoFit(tetromino))
+    if (board.DoesTetrominoFit(tetromino)) {
         board.AddTetromino(tetromino);
-    else {
+    } else {
         tetromino.SetPosition(previousPosition);
         tetromino.SetRotation(previousRotation);
         board.AddTetromino(tetromino);

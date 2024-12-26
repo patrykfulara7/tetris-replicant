@@ -2,7 +2,7 @@
 
 #include "CMakePlaceholders.hxx"
 
-#include <Automata.hxx>
+#include <Automata/Automata.hxx>
 
 #include <cstdint>
 

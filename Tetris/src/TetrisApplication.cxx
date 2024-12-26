@@ -1,4 +1,4 @@
-#include <Core/main.hxx>
+#include <Automata/Main.hxx>
 
 #include "tetpch.hxx"
 
