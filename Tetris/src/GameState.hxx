@@ -7,9 +7,9 @@
 #include "State.hxx"
 #include "Tetromino.hxx"
 
-class GameState : public State
-{
+class GameState : public State {
     static constexpr glm::ivec2 INITIAL_POSITION = glm::ivec2(3, 0);
+    static constexpr u_int16_t TILE_SIZE = 32;
 
     Tetromino tetromino;
     Board board;
@@ -19,23 +19,25 @@ class GameState : public State
 
     std::thread fall;
 
-    enum class Action
-    {
-        None = 0,
-        MoveDown, MoveLeft, MoveRight,
-        RotateLeft, RotateRight
+    enum class Action {
+        None,
+        MoveDown,
+        MoveLeft,
+        MoveRight,
+        RotateLeft,
+        RotateRight
     };
 
     Action nextAction = Action::None;
 
-private:
+  private:
     void Fall();
 
-public:
-    GameState(StateManager& stateManager);
-    ~GameState();
+  public:
+    explicit GameState(StateManager &stateManager);
+    ~GameState() override;
 
-    void OnEvent(Automata::Event& event) override;
+    void OnEvent(Automata::Event &event) override;
     void OnUpdate(double deltaTime) override;
     void OnRender() override;
 };

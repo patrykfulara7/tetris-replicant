@@ -14,6 +14,9 @@ class State {
     void PushState(StateID stateID);
     void PopState();
 
+    void SetUserPointer(const std::shared_ptr<void> &userPointer);
+    std::shared_ptr<void> GetUserPointer();
+
   public:
     State(StateManager &stateManager);
     virtual ~State() = default;

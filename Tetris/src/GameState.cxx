@@ -1,6 +1,7 @@
 #include "GameState.hxx"
 
-GameState::GameState(StateManager &stateManager) : State(stateManager), tetromino(0, 0, INITIAL_POSITION), board(10, 20) {
+GameState::GameState(StateManager &stateManager)
+    : State(stateManager), tetromino(0, 0, INITIAL_POSITION), board(10, 20) {
     blockTextures.reserve(8);
     for (uint8_t i = 0; i < 8; i++) {
         blockTextures.emplace_back(SOURCE_DIRECTORY "/Tetris/res/tex/" + std::to_string(i) + ".png");
@@ -108,8 +109,9 @@ void GameState::OnUpdate(double deltaTime) {
             tetromino.SetRotation(0);
 
             if (not board.DoesTetrominoFit(tetromino)) {
+                SetUserPointer(std::make_shared<Board>(board));
                 PopState();
-                PushState(StateID::Game);
+                PushState(StateID::GameOver);
             }
 
             board.AddTetromino(tetromino);
@@ -120,10 +122,12 @@ void GameState::OnUpdate(double deltaTime) {
 }
 
 void GameState::OnRender() {
-    for (uint8_t i = 0; i < board.GetHeight(); i++) {
-        for (uint8_t j = 0; j < board.GetWidth(); j++) {
-            if (board[i][j] != 0) {
-                Automata::Renderer::Draw(glm::vec2(j * 32.0f, i * 32.0f), blockTextures[board[i][j] - 1]);
+    for (uint16_t row = 0; row < board.GetHeight(); row++) {
+        for (uint16_t col = 0; col < board.GetWidth(); col++) {
+            if (board[row][col] != 0) {
+                Automata::Renderer::Draw(
+                    glm::vec2(static_cast<double>(col * TILE_SIZE), static_cast<double>(row * TILE_SIZE)),
+                    blockTextures[board[row][col] - 1]);
             }
         }
     }

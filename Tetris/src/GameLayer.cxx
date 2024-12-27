@@ -1,4 +1,5 @@
 #include "GameLayer.hxx"
+#include "GameOverState.cxx"
 #include "GameState.hxx"
 #include "StateIdentifiers.hxx"
 
@@ -7,6 +8,7 @@ GameLayer::GameLayer() {
 
 void GameLayer::OnAttach() {
     stateManager.RegisterState<GameState>(StateID::Game);
+    stateManager.RegisterState<GameOverState>(StateID::GameOver);
     stateManager.PushState(StateID::Game);
 }
 

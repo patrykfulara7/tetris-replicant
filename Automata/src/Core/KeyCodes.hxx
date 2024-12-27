@@ -3,7 +3,7 @@
 #include "ampch.hxx"
 
 namespace Automata {
-    using KeyCode = int;
+    using KeyCode = uint8_t;
 
     enum Key : KeyCode {
         C = GLFW_KEY_C,

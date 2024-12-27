@@ -53,8 +53,9 @@ bool Board::DoesTetrominoFit(const Tetromino &tetromino) {
         uint8_t x = tetromino.GetPosition().x + offset % 4;
         uint8_t y = tetromino.GetPosition().y + offset / 4;
 
-        if (x >= width or y >= height or board[y][x] != 0)
+        if (x >= width or y >= height or board[y][x] != 0) {
             return false;
+        }
     }
 
     return true;
@@ -63,11 +64,11 @@ bool Board::DoesTetrominoFit(const Tetromino &tetromino) {
 void Board::ClearRows() {
     uint16_t offset = 0;
 
-    for (int32_t i = height - 1; i >= 0; i--) {
-        if (std::all_of(board[i].begin(), board[i].end(), [](uint8_t x) { return x > 0; })) {
+    for (int32_t row = height - 1; row >= 0; row--) {
+        if (std::all_of(board[row].begin(), board[row].end(), [](uint8_t x) { return x > 0; })) {
             offset++;
         } else {
-            board[i + offset] = board[i];
+            board[row + offset] = board[row];
         }
     }
 }

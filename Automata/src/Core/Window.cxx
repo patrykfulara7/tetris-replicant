@@ -1,6 +1,6 @@
-#include "Core/Window.hxx"
 #include "Core/Core.hxx"
 #include "Core/Input.hxx"
+#include "Core/Window.hxx"
 
 #include "Events/KeyboardEvent.hxx"
 
@@ -70,7 +70,8 @@ namespace Automata {
 
     Window::~Window() {
         glfwDestroyWindow(data.windowHandle);
-        glfwTerminate();
+        // Causes seg fault
+        // glfwTerminate();
     }
 
     void Window::Update() {
