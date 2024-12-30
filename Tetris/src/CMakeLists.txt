@@ -4,6 +4,8 @@ target_sources(${PROJECT_NAME}
     Board.hxx
     GameLayer.cxx
     GameLayer.hxx
+    GameOverState.cxx
+    GameOverState.hxx
     GameState.cxx
     GameState.hxx
     Sequence.cxx

@@ -3,14 +3,12 @@
 #include "tetpch.hxx"
 
 #include "Board.hxx"
+#include "Cache.hxx"
 #include "State.hxx"
 
 class GameOverState : public State {
   private:
-    static constexpr u_int16_t TILE_SIZE = 32;
-
-    Board board;
-    Automata::Texture blockTexture;
+    std::shared_ptr<Cache> cache = nullptr;
 
   public:
     explicit GameOverState(StateManager &stateManager);

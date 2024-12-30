@@ -9,8 +9,7 @@ class GameLayer : public Automata::Layer {
     StateManager stateManager;
 
   public:
-    GameLayer();
-    ~GameLayer() = default;
+    ~GameLayer() override = default;
 
     void OnAttach() override;
     void OnDetach() override;

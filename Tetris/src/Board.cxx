@@ -1,6 +1,8 @@
 #include "Board.hxx"
 
 Board::Board(uint16_t width, uint16_t height) : width(width), height(height) {
+    std::cout << "Constructed" << std::endl;
+
     board.resize(height);
     for (auto &row : board) {
         row.resize(width);
@@ -59,6 +61,12 @@ bool Board::DoesTetrominoFit(const Tetromino &tetromino) {
     }
 
     return true;
+}
+
+void Board::Clear() {
+    for (auto &row : board) {
+        std::fill(row.begin(), row.end(), 0);
+    }
 }
 
 void Board::ClearRows() {

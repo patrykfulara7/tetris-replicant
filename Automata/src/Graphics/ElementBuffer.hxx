@@ -22,7 +22,8 @@ namespace Automata {
         inline GLsizei GetCount() const {
             return count;
         }
-        static inline std::shared_ptr<ElementBuffer> Create(GLsizeiptr size, const GLvoid *data, GLenum usage, GLenum type) {
+        static inline std::shared_ptr<ElementBuffer> Create(GLsizeiptr size, const GLvoid *data, GLenum usage,
+                                                            GLenum type) {
             return std::make_shared<ElementBuffer>(size, data, usage, type);
         }
     };
