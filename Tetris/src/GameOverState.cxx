@@ -12,8 +12,7 @@ void GameOverState::OnEvent(Automata::Event &event) {
         return;
     }
 
-    auto keyPressedEvent = *dynamic_cast<Automata::KeyPressedEvent *>(&event);
-    auto key = keyPressedEvent.GetKeyCode();
+    Automata::KeyCode key = dynamic_cast<Automata::KeyPressedEvent *>(&event)->GetKeyCode();
 
     switch (key) {
         case Automata::Key::C: {

@@ -1,8 +1,6 @@
 #include "Board.hxx"
 
 Board::Board(uint16_t width, uint16_t height) : width(width), height(height) {
-    std::cout << "Constructed" << std::endl;
-
     board.resize(height);
     for (auto &row : board) {
         row.resize(width);
@@ -31,19 +29,19 @@ int Board::Rotate(uint8_t x, uint8_t rotation) {
 
 void Board::AddTetromino(const Tetromino &tetromino) {
     for (uint8_t i = 0; i < 4; i++) {
-        uint8_t offset = Rotate(tetromino[i], tetromino.GetRotation());
-        uint8_t x = tetromino.GetPosition().x + offset % 4;
-        uint8_t y = tetromino.GetPosition().y + offset / 4;
+        uint8_t offset = Rotate(tetromino[i], tetromino.rotation);
+        uint8_t x = tetromino.position.x + offset % 4;
+        uint8_t y = tetromino.position.y + offset / 4;
 
-        board[y][x] = tetromino.GetTetromino() + 1;
+        board[y][x] = tetromino.tetromino + 1;
     }
 }
 
 void Board::RemoveTetromino(const Tetromino &tetromino) {
     for (uint8_t i = 0; i < 4; i++) {
-        uint8_t offset = Rotate(tetromino[i], tetromino.GetRotation());
-        uint8_t x = tetromino.GetPosition().x + offset % 4;
-        uint8_t y = tetromino.GetPosition().y + offset / 4;
+        uint8_t offset = Rotate(tetromino[i], tetromino.rotation);
+        uint8_t x = tetromino.position.x + offset % 4;
+        uint8_t y = tetromino.position.y + offset / 4;
 
         board[y][x] = 0;
     }
@@ -51,9 +49,9 @@ void Board::RemoveTetromino(const Tetromino &tetromino) {
 
 bool Board::DoesTetrominoFit(const Tetromino &tetromino) {
     for (uint8_t i = 0; i < 4; i++) {
-        uint8_t offset = Rotate(tetromino[i], tetromino.GetRotation());
-        uint8_t x = tetromino.GetPosition().x + offset % 4;
-        uint8_t y = tetromino.GetPosition().y + offset / 4;
+        uint8_t offset = Rotate(tetromino[i], tetromino.rotation);
+        uint8_t x = tetromino.position.x + offset % 4;
+        uint8_t y = tetromino.position.y + offset / 4;
 
         if (x >= width or y >= height or board[y][x] != 0) {
             return false;

@@ -10,7 +10,6 @@
 
 class GameState : public State {
     static constexpr glm::ivec2 INITIAL_POSITION = glm::ivec2(3, 0);
-    static constexpr u_int16_t TILE_SIZE = 32;
 
     std::shared_ptr<Cache> cache = nullptr;
 

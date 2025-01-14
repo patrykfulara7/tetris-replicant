@@ -2,7 +2,7 @@
 
 GameState::GameState(StateManager &stateManager)
     : State(stateManager), cache(std::static_pointer_cast<Cache>(GetUserPointer())), tetromino(0, 0, INITIAL_POSITION) {
-    tetromino.SetTetromino(sequence.GetNumber());
+    tetromino.tetromino = sequence.GetNumber();
 
     cache->board.Clear();
     cache->board.AddTetromino(tetromino);
@@ -29,8 +29,7 @@ void GameState::OnEvent(Automata::Event &event) {
         return;
     }
 
-    auto keyPressedEvent = *dynamic_cast<Automata::KeyPressedEvent *>(&event);
-    auto key = keyPressedEvent.GetKeyCode();
+    Automata::KeyCode key = dynamic_cast<Automata::KeyPressedEvent *>(&event)->GetKeyCode();
 
     switch (key) {
         case Automata::Key::C: {
@@ -68,47 +67,47 @@ void GameState::OnUpdate(double deltaTime) {
     (void)deltaTime;
 
     cache->board.RemoveTetromino(tetromino);
-    glm::ivec2 previousPosition = tetromino.GetPosition();
-    uint8_t previousRotation = tetromino.GetRotation();
+    glm::ivec2 previousPosition = tetromino.position;
+    uint8_t previousRotation = tetromino.rotation;
 
     switch (nextAction) {
         case Action::None: {
         } break;
 
         case Action::MoveDown: {
-            tetromino.SetPosition(tetromino.GetPosition() + glm::ivec2(0, 1));
+            tetromino.position = tetromino.position + glm::ivec2(0, 1);
         } break;
 
         case Action::MoveLeft: {
-            tetromino.SetPosition(tetromino.GetPosition() + glm::ivec2(-1, 0));
+            tetromino.position = tetromino.position + glm::ivec2(-1, 0);
         } break;
 
         case Action::MoveRight: {
-            tetromino.SetPosition(tetromino.GetPosition() + glm::ivec2(1, 0));
+            tetromino.position = tetromino.position + glm::ivec2(1, 0);
         } break;
 
         case Action::RotateLeft: {
-            tetromino.SetRotation((tetromino.GetRotation() + 1) % 4);
+            tetromino.rotation = (tetromino.rotation + 1) % 4;
         } break;
 
         case Action::RotateRight: {
-            tetromino.SetRotation((tetromino.GetRotation() + 3) % 4);
+            tetromino.rotation = (tetromino.rotation + 3) % 4;
         } break;
     }
 
     if (cache->board.DoesTetrominoFit(tetromino)) {
         cache->board.AddTetromino(tetromino);
     } else {
-        tetromino.SetPosition(previousPosition);
-        tetromino.SetRotation(previousRotation);
+        tetromino.position = previousPosition;
+        tetromino.rotation = previousRotation;
         cache->board.AddTetromino(tetromino);
 
         if (nextAction == Action::MoveDown) {
             cache->board.ClearRows();
 
-            tetromino.SetTetromino(sequence.GetNumber());
-            tetromino.SetPosition(INITIAL_POSITION);
-            tetromino.SetRotation(0);
+            tetromino.tetromino = sequence.GetNumber();
+            tetromino.position = INITIAL_POSITION;
+            tetromino.rotation = 0;
 
             if (not cache->board.DoesTetrominoFit(tetromino)) {
                 PopState();
@@ -126,9 +125,9 @@ void GameState::OnRender() {
     for (uint16_t row = 0; row < cache->board.GetHeight(); row++) {
         for (uint16_t col = 0; col < cache->board.GetWidth(); col++) {
             if (cache->board[row][col] != 0) {
-                Automata::Renderer::Draw(
-                    glm::vec2(static_cast<double>(col * TILE_SIZE), static_cast<double>(row * TILE_SIZE)),
-                    cache->blockTextures[cache->board[row][col] - 1]);
+                Automata::Renderer::Draw(glm::vec2(static_cast<double>(col * cache->TILE_SIZE),
+                                                   static_cast<double>((row - 0) * cache->TILE_SIZE)),
+                                         cache->blockTextures[cache->board[row][col] - 1]);
             }
         }
     }
