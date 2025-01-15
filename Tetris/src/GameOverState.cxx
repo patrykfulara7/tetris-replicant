@@ -31,12 +31,12 @@ void GameOverState::OnUpdate(double deltaTime) {
 }
 
 void GameOverState::OnRender() {
-    for (uint16_t row = 0; row < cache->board.GetHeight(); row++) {
+    for (uint16_t row = 1; row < cache->board.GetHeight(); row++) {
         for (uint16_t col = 0; col < cache->board.GetWidth(); col++) {
             if (cache->board[row][col] != 0) {
-                Automata::Renderer::Draw(
-                    glm::vec2(static_cast<double>(col * cache->TILE_SIZE), static_cast<double>(row * cache->TILE_SIZE)),
-                    cache->blockTextures[7]);
+                Automata::Renderer::Draw(glm::vec2(static_cast<double>(col * cache->TILE_SIZE),
+                                                   static_cast<double>((row - 1) * cache->TILE_SIZE)),
+                                         cache->blockTextures[7]);
             }
         }
     }

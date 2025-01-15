@@ -5,7 +5,7 @@
 
 struct Cache {
   public:
-    static constexpr u_int16_t TILE_SIZE = 32;
+    static constexpr uint16_t TILE_SIZE = 32;
 
     Board board;
     std::vector<Automata::Texture> blockTextures;

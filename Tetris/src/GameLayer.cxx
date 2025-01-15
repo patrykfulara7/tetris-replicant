@@ -8,7 +8,7 @@ void GameLayer::OnAttach() {
     stateManager.RegisterState<GameState>(StateID::Game);
     stateManager.RegisterState<GameOverState>(StateID::GameOver);
 
-    auto cache = Cache::Create(Board(10, 20));
+    auto cache = Cache::Create(Board(10, 21));
 
     cache->blockTextures.reserve(8);
     for (uint8_t i = 0; i < 8; i++) {

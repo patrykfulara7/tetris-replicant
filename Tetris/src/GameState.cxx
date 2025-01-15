@@ -109,12 +109,12 @@ void GameState::OnUpdate(double deltaTime) {
             tetromino.position = INITIAL_POSITION;
             tetromino.rotation = 0;
 
-            if (not cache->board.DoesTetrominoFit(tetromino)) {
+            if (cache->board.DoesTetrominoFit(tetromino)) {
+                cache->board.AddTetromino(tetromino);
+            } else {
                 PopState();
                 PushState(StateID::GameOver);
             }
-
-            cache->board.AddTetromino(tetromino);
         }
     }
 
@@ -122,11 +122,11 @@ void GameState::OnUpdate(double deltaTime) {
 }
 
 void GameState::OnRender() {
-    for (uint16_t row = 0; row < cache->board.GetHeight(); row++) {
+    for (uint16_t row = 1; row < cache->board.GetHeight(); row++) {
         for (uint16_t col = 0; col < cache->board.GetWidth(); col++) {
             if (cache->board[row][col] != 0) {
                 Automata::Renderer::Draw(glm::vec2(static_cast<double>(col * cache->TILE_SIZE),
-                                                   static_cast<double>((row - 0) * cache->TILE_SIZE)),
+                                                   static_cast<double>((row - 1) * cache->TILE_SIZE)),
                                          cache->blockTextures[cache->board[row][col] - 1]);
             }
         }
