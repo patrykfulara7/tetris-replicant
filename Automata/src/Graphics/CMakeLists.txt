@@ -1,3 +1,19 @@
-file(GLOB GRAPHICS_SRCS *.cxx *.hxx)
-
-target_sources(${AUTOMATA_PRJ_NAME} PRIVATE ${GRAPHICS_SRCS})
+target_sources(${PROJECT_NAME}
+    PRIVATE
+    BufferLayout.cxx
+    BufferLayout.hxx
+    ElementBuffer.cxx
+    ElementBuffer.hxx
+    GLTypes.cxx
+    GLTypes.hxx
+    Renderer.cxx
+    Renderer.hxx
+    Shader.cxx
+    Shader.hxx
+    Texture.cxx
+    Texture.hxx
+    VertexArray.cxx
+    VertexArray.hxx
+    VertexBuffer.cxx
+    VertexBuffer.hxx
+)

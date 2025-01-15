@@ -1,6 +1,8 @@
 #pragma once
 
-#include <Automata.hxx>
+#include "CMakePlaceholders.hxx"
+
+#include <Automata/Automata.hxx>
 
 #include <cstdint>
 

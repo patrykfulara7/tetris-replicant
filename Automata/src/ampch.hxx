@@ -1,5 +1,7 @@
 #pragma once
 
+#include "CMakePlaceholders.hxx"
+
 // clang-format off
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

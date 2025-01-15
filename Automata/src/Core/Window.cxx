@@ -1,6 +1,6 @@
-#include "Core/Window.hxx"
 #include "Core/Core.hxx"
 #include "Core/Input.hxx"
+#include "Core/Window.hxx"
 
 #include "Events/KeyboardEvent.hxx"
 
@@ -11,8 +11,8 @@ namespace Automata {
             AM_ASSERT(result == GLFW_TRUE);
         }
 
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
         glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
@@ -37,7 +37,8 @@ namespace Automata {
 
         glEnable(GL_DEBUG_CALLBACK_FUNCTION);
         glDebugMessageCallback(
-            [](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *message, const void *userParam) {
+            [](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *message,
+               const void *userParam) {
                 (void)source, (void)type, (void)id, (void)severity, (void)length, (void)userParam;
 
                 std::cerr << message << std::endl;
@@ -70,7 +71,8 @@ namespace Automata {
 
     Window::~Window() {
         glfwDestroyWindow(data.windowHandle);
-        glfwTerminate();
+        // Causes seg fault
+        // glfwTerminate();
     }
 
     void Window::Update() {

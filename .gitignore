@@ -1,2 +1,4 @@
-tetris
+.vscode
 build
+Automata/src/CMakePlaceholders.hxx
+Tetris/src/CMakePlaceholders.hxx

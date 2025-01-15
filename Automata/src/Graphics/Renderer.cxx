@@ -10,7 +10,8 @@ namespace Automata {
     void Renderer::Init(int width, int height) {
         projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
 
-        shader = Shader::Create("Automata/shaders/vertex.glsl", "Automata/shaders/fragment.glsl");
+        shader = Shader::Create(SOURCE_DIRECTORY "/Automata/shaders/vertex.vert",
+                                SOURCE_DIRECTORY "/Automata/shaders/fragment.frag");
 
         shader->Bind();
         shader->SetMatrix4fv("projection", projection);
@@ -18,7 +19,14 @@ namespace Automata {
 
         vertexArray = VertexArray::Create();
 
-        std::array<GLfloat, 16> vertcies = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f};
+        // clang-format off
+        std::array<GLfloat, 16> vertcies = {
+            0.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f, 1.0f,
+            1.0f, 0.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f, 1.0f
+        };
+        // clang-format on
         auto vertexBuffer = VertexBuffer::Create(vertcies.size() * sizeof(GLfloat), vertcies.data(), GL_STATIC_DRAW);
         vertexArray->SetVertexBuffer(vertexBuffer);
 
@@ -27,8 +35,14 @@ namespace Automata {
         bufferLayout->PushAttribute(2, GL_FLOAT, GL_FALSE);
         vertexArray->SetBufferLayout(bufferLayout);
 
-        std::array<GLuint, 6> indicies = {0, 1, 2, 1, 2, 3};
-        auto elementBuffer = ElementBuffer::Create(indicies.size() * sizeof(GLuint), indicies.data(), GL_STATIC_DRAW, GL_UNSIGNED_INT);
+        // clang-format off
+        std::array<GLuint, 6> indicies = {
+            0, 1, 2,
+            1, 2, 3
+        };
+        // clang-format on
+        auto elementBuffer =
+            ElementBuffer::Create(indicies.size() * sizeof(GLuint), indicies.data(), GL_STATIC_DRAW, GL_UNSIGNED_INT);
         vertexArray->SetElementBuffer(elementBuffer);
     }
 
@@ -46,6 +60,7 @@ namespace Automata {
         texture.Bind(0);
 
         vertexArray->Bind();
-        glDrawElements(GL_TRIANGLES, vertexArray->GetElementBuffer()->GetCount(), vertexArray->GetElementBuffer()->GetType(), 0);
+        glDrawElements(GL_TRIANGLES, vertexArray->GetElementBuffer()->GetCount(),
+                       vertexArray->GetElementBuffer()->GetType(), 0);
     }
 } // namespace Automata

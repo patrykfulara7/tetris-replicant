@@ -29,19 +29,19 @@ int Board::Rotate(uint8_t x, uint8_t rotation) {
 
 void Board::AddTetromino(const Tetromino &tetromino) {
     for (uint8_t i = 0; i < 4; i++) {
-        uint8_t offset = Rotate(tetromino[i], tetromino.GetRotation());
-        uint8_t x = tetromino.GetPosition().x + offset % 4;
-        uint8_t y = tetromino.GetPosition().y + offset / 4;
+        uint8_t offset = Rotate(tetromino[i], tetromino.rotation);
+        uint8_t x = tetromino.position.x + offset % 4;
+        uint8_t y = tetromino.position.y + offset / 4;
 
-        board[y][x] = tetromino.GetTetromino() + 1;
+        board[y][x] = tetromino.tetromino + 1;
     }
 }
 
 void Board::RemoveTetromino(const Tetromino &tetromino) {
     for (uint8_t i = 0; i < 4; i++) {
-        uint8_t offset = Rotate(tetromino[i], tetromino.GetRotation());
-        uint8_t x = tetromino.GetPosition().x + offset % 4;
-        uint8_t y = tetromino.GetPosition().y + offset / 4;
+        uint8_t offset = Rotate(tetromino[i], tetromino.rotation);
+        uint8_t x = tetromino.position.x + offset % 4;
+        uint8_t y = tetromino.position.y + offset / 4;
 
         board[y][x] = 0;
     }
@@ -49,25 +49,32 @@ void Board::RemoveTetromino(const Tetromino &tetromino) {
 
 bool Board::DoesTetrominoFit(const Tetromino &tetromino) {
     for (uint8_t i = 0; i < 4; i++) {
-        uint8_t offset = Rotate(tetromino[i], tetromino.GetRotation());
-        uint8_t x = tetromino.GetPosition().x + offset % 4;
-        uint8_t y = tetromino.GetPosition().y + offset / 4;
+        uint8_t offset = Rotate(tetromino[i], tetromino.rotation);
+        uint8_t x = tetromino.position.x + offset % 4;
+        uint8_t y = tetromino.position.y + offset / 4;
 
-        if (x >= width or y >= height or board[y][x] != 0)
+        if (x >= width or y >= height or board[y][x] != 0) {
             return false;
+        }
     }
 
     return true;
 }
 
+void Board::Clear() {
+    for (auto &row : board) {
+        std::fill(row.begin(), row.end(), 0);
+    }
+}
+
 void Board::ClearRows() {
     uint16_t offset = 0;
 
-    for (int32_t i = height - 1; i >= 0; i--) {
-        if (std::all_of(board[i].begin(), board[i].end(), [](uint8_t x) { return x > 0; })) {
+    for (int32_t row = height - 1; row >= 0; row--) {
+        if (std::all_of(board[row].begin(), board[row].end(), [](uint8_t x) { return x > 0; })) {
             offset++;
         } else {
-            board[i + offset] = board[i];
+            board[row + offset] = board[row];
         }
     }
 }

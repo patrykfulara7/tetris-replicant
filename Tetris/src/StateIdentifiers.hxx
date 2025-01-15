@@ -3,7 +3,7 @@
 #include "tetpch.hxx"
 
 enum class StateID : uint8_t {
-    None = 0,
+    None,
     Game,
     GameOver
 };

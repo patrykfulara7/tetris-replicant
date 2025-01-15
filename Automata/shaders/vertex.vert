@@ -6,7 +6,7 @@ layout (location = 1) in vec2 iTexturePosition;
 out vec2 TexturePosition;
 
 uniform mat4 projection;
-uniform mat4 model; 
+uniform mat4 model;
 
 void
 main(void) {

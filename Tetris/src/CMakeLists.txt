@@ -1,4 +1,29 @@
-file(GLOB TETRIS_SRCS *.cxx *.hxx)
+target_sources(${PROJECT_NAME}
+    PRIVATE
+    Board.cxx
+    Board.hxx
+    GameLayer.cxx
+    GameLayer.hxx
+    GameOverState.cxx
+    GameOverState.hxx
+    GameState.cxx
+    GameState.hxx
+    Sequence.cxx
+    Sequence.hxx
+    State.cxx
+    State.hxx
+    StateIdentifiers.hxx
+    StateManager.cxx
+    StateManager.hxx
+    TetrisApplication.cxx
+    Tetromino.cxx
+    Tetromino.hxx
+    tetpch.hxx
+)
 
-target_sources(${TETRIS_PRJ_NAME} PRIVATE ${TETRIS_SRCS})
-target_precompile_headers(${TETRIS_PRJ_NAME} PRIVATE tetpch.hxx)
+target_precompile_headers(${PROJECT_NAME}
+    PRIVATE
+    tetpch.hxx
+)
+
+configure_file(CMakePlaceholders.hxx.in ${CMAKE_CURRENT_LIST_DIR}/CMakePlaceholders.hxx)
