@@ -1,4 +1,4 @@
-# Tetris Replica
+# Tetris Replicant
 
 Simple replica of Tetris written in C++ with OpenGL.
 
