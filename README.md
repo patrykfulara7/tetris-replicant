@@ -10,7 +10,7 @@ Simple replica of Tetris written in C++ with OpenGL.
 
 First download the repository along with the submodules
 ```
-git clone --resursive -j8 https://github.com/patrykfulara7/Tetris.git
+git clone --resursive -j8 https://github.com/patrykfulara7/tetris-replicant.git
 ```
 
 Then build and compile with [CMake](https://github.com/Kitware/CMake)
