@@ -1,4 +1,5 @@
 .vscode
+.clang-format
 build
 Automata/src/CMakePlaceholders.hxx
 Tetris/src/CMakePlaceholders.hxx
