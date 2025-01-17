@@ -1,6 +1,6 @@
 # Tetris Replicant
 
-Simple replica of Tetris written in C++ with OpenGL.
+A simple replica of Tetris written in C++ with OpenGL.
 
 <p align="center">
 	<img width="320" height="640" src="https://imgur.com/tpitYAX.png">
@@ -8,19 +8,19 @@ Simple replica of Tetris written in C++ with OpenGL.
 
 ## Installation
 
-First download the repository along with the submodules
+First, download the repository along with its submodules:
 ```
-git clone --resursive -j8 https://github.com/patrykfulara7/tetris-replicant.git
+git clone --recursive -j8 https://github.com/patrykfulara7/tetris-replicant.git
 ```
 
-Then build and compile with [CMake](https://github.com/Kitware/CMake)
+Then, build and compile it with [CMake](https://github.com/Kitware/CMake):
 ```
 cd Tetris
 cmake -G "Unix Makefiles" -S . -B build
 cmake --build build
 ```
 
-And run
+Finally, run the executable:
 ```
 # On Linux
 ./build/Tetris/tetris
@@ -30,6 +30,13 @@ And run
 ```
 
 ## Controls
-| Left | Down | Right | Rotate Left | Rotate Right | Close | Restart |
-| ---- | ---- | ----- | ----------- | ------------ | ----- | ------- |
-| H    | J    | L     | Q           | E            | C     | R       |
+
+| Action         | Key   |
+|----------------|-------|
+| Move Left      | H     |
+| Move Down      | J     |
+| Move Right     | L     |
+| Rotate Left    | Q     |
+| Rotate Right   | E     |
+| Close Game     | C     |
+| Restart Game   | R     |
