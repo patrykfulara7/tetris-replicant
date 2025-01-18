@@ -16,7 +16,7 @@ git clone --recursive -j8 https://github.com/patrykfulara7/tetris-replicant.git
 Then, build and compile it with [CMake](https://github.com/Kitware/CMake):
 ```
 cd Tetris
-cmake -G "Unix Makefiles" -S . -B build
+cmake -S . -B build
 cmake --build build
 ```
 
