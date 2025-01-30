@@ -12,7 +12,7 @@ void GameLayer::OnAttach() {
 
     cache->blockTextures.reserve(8);
     for (uint8_t i = 0; i < 8; i++) {
-        cache->blockTextures.emplace_back(SOURCE_DIRECTORY "/Tetris/res/tex/" + std::to_string(i) + ".png");
+        cache->blockTextures.emplace_back(SOURCE_DIRECTORY "/Tetris/assets/images/" + std::to_string(i) + ".png");
     }
 
     stateManager.SetUserPointer(cache);
