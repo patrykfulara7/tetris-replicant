@@ -1,21 +1,14 @@
 #include "State.hxx"
 #include "StateManager.hxx"
 
-State::State(StateManager &stateManager) : stateManager(&stateManager) {
+State::State(StateManager &stateManager, const std::shared_ptr<GameContext> &gameContext)
+    : stateManager(&stateManager), gameContext(gameContext) {
 }
 
-void State::PushState(StateID stateID) {
-    stateManager->PushState(stateID);
+void State::PushState(StateID stateID, const std::shared_ptr<GameContext> &gameContext) {
+    stateManager->PushState(stateID, gameContext);
 }
 
 void State::PopState() {
     stateManager->PopState();
-}
-
-void State::SetUserPointer(const std::shared_ptr<void> &userPointer) {
-    stateManager->SetUserPointer(userPointer);
-}
-
-std::shared_ptr<void> State::GetUserPointer() {
-    return stateManager->GetUserPointer();
 }

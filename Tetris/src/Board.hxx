@@ -21,7 +21,7 @@ class Board {
     void RemoveTetromino(const Tetromino &tetromino);
     bool DoesTetrominoFit(const Tetromino &tetromino);
 
-    void Clear();
+    // void Clear();
     void ClearRows();
 
     inline uint16_t GetWidth() const {

@@ -2,6 +2,7 @@ target_sources(${PROJECT_NAME}
     PRIVATE
     Board.cxx
     Board.hxx
+    GameContext.hxx
     GameLayer.cxx
     GameLayer.hxx
     GameOverState.cxx

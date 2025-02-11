@@ -1,11 +1,24 @@
 #include "GameState.hxx"
 
-GameState::GameState(StateManager &stateManager)
-    : State(stateManager), cache(std::static_pointer_cast<Cache>(GetUserPointer())), tetromino(0, 0, INITIAL_POSITION) {
+GameState::GameState(StateManager &stateManager, std::shared_ptr<GameContext> gameContext)
+    : State(stateManager, gameContext), tetromino(0, 0, INITIAL_POSITION) {
     tetromino.tetromino = sequence.GetNumber();
 
-    cache->board.Clear();
-    cache->board.AddTetromino(tetromino);
+    if (gameContext == nullptr) {
+        auto gameContext = std::make_shared<GameContext>(Board(10, 21));
+
+        gameContext->blockTextures.reserve(8);
+        for (uint8_t i = 0; i < 8; i++) {
+            gameContext->blockTextures.emplace_back(SOURCE_DIRECTORY "/Tetris/assets/images/" + std::to_string(i) +
+                                                    ".png");
+        }
+
+        this->gameContext = gameContext;
+    } else {
+        this->gameContext->board = Board(10, 21);
+    }
+
+    this->gameContext->board.AddTetromino(tetromino);
 
     fall = std::thread(&GameState::Fall, this);
 }
@@ -38,7 +51,7 @@ void GameState::OnEvent(Automata::Event &event) {
 
         case Automata::Key::R: {
             PopState();
-            PushState(StateID::Game);
+            PushState(StateID::Game, gameContext);
         } break;
 
         case Automata::Key::J: {
@@ -66,7 +79,7 @@ void GameState::OnEvent(Automata::Event &event) {
 void GameState::OnUpdate(double deltaTime) {
     (void)deltaTime;
 
-    cache->board.RemoveTetromino(tetromino);
+    gameContext->board.RemoveTetromino(tetromino);
     glm::ivec2 previousPosition = tetromino.position;
     uint8_t previousRotation = tetromino.rotation;
 
@@ -95,25 +108,25 @@ void GameState::OnUpdate(double deltaTime) {
         } break;
     }
 
-    if (cache->board.DoesTetrominoFit(tetromino)) {
-        cache->board.AddTetromino(tetromino);
+    if (gameContext->board.DoesTetrominoFit(tetromino)) {
+        gameContext->board.AddTetromino(tetromino);
     } else {
         tetromino.position = previousPosition;
         tetromino.rotation = previousRotation;
-        cache->board.AddTetromino(tetromino);
+        gameContext->board.AddTetromino(tetromino);
 
         if (nextAction == Action::MoveDown) {
-            cache->board.ClearRows();
+            gameContext->board.ClearRows();
 
             tetromino.tetromino = sequence.GetNumber();
             tetromino.position = INITIAL_POSITION;
             tetromino.rotation = 0;
 
-            if (cache->board.DoesTetrominoFit(tetromino)) {
-                cache->board.AddTetromino(tetromino);
+            if (gameContext->board.DoesTetrominoFit(tetromino)) {
+                gameContext->board.AddTetromino(tetromino);
             } else {
                 PopState();
-                PushState(StateID::GameOver);
+                PushState(StateID::GameOver, gameContext);
             }
         }
     }
@@ -122,12 +135,12 @@ void GameState::OnUpdate(double deltaTime) {
 }
 
 void GameState::OnRender() {
-    for (uint16_t row = 1; row < cache->board.GetHeight(); row++) {
-        for (uint16_t col = 0; col < cache->board.GetWidth(); col++) {
-            if (cache->board[row][col] != 0) {
-                Automata::Renderer::Draw(glm::vec2(static_cast<double>(col * cache->TILE_SIZE),
-                                                   static_cast<double>((row - 1) * cache->TILE_SIZE)),
-                                         cache->blockTextures[cache->board[row][col] - 1]);
+    for (uint16_t row = 1; row < gameContext->board.GetHeight(); row++) {
+        for (uint16_t col = 0; col < gameContext->board.GetWidth(); col++) {
+            if (gameContext->board[row][col] != 0) {
+                Automata::Renderer::Draw(glm::vec2(static_cast<double>(col * gameContext->TILE_SIZE),
+                                                   static_cast<double>((row - 1) * gameContext->TILE_SIZE)),
+                                         gameContext->blockTextures[gameContext->board[row][col] - 1]);
             }
         }
     }

@@ -2,6 +2,7 @@
 
 #include "tetpch.hxx"
 
+#include "GameContext.hxx"
 #include "StateIdentifiers.hxx"
 
 class StateManager;
@@ -11,14 +12,14 @@ class State {
     StateManager *stateManager = nullptr;
 
   protected:
-    void PushState(StateID stateID);
+    std::shared_ptr<GameContext> gameContext = nullptr;
+
+  protected:
+    void PushState(StateID stateID, const std::shared_ptr<GameContext> &gameContext);
     void PopState();
 
-    void SetUserPointer(const std::shared_ptr<void> &userPointer);
-    std::shared_ptr<void> GetUserPointer();
-
   public:
-    State(StateManager &stateManager);
+    State(StateManager &stateManager, const std::shared_ptr<GameContext> &gameContext);
     virtual ~State() = default;
 
     virtual void OnEvent(Automata::Event &event) = 0;

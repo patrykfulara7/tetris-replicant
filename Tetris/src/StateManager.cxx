@@ -1,21 +1,13 @@
 #include "StateManager.hxx"
 
-void StateManager::PushState(StateID stateID) {
+void StateManager::PushState(StateID stateID, const std::shared_ptr<GameContext> &gameContext) {
     auto stateConstructor = stateConstructors.find(stateID);
     assert(stateConstructor != stateConstructors.end());
-    state = stateConstructor->second();
+    state = stateConstructor->second(gameContext);
 }
 
 void StateManager::PopState() {
     state.release();
-}
-
-void StateManager::SetUserPointer(const std::shared_ptr<void> &userPointer) {
-    this->userPointer = userPointer;
-}
-
-std::shared_ptr<void> StateManager::GetUserPointer() {
-    return userPointer;
 }
 
 void StateManager::OnEvent(Automata::Event &event) {

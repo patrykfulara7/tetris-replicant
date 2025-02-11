@@ -3,15 +3,13 @@
 #include "tetpch.hxx"
 
 #include "Board.hxx"
-#include "Cache.hxx"
+#include "GameContext.hxx"
 #include "Sequence.hxx"
 #include "State.hxx"
 #include "Tetromino.hxx"
 
 class GameState : public State {
     static constexpr glm::ivec2 INITIAL_POSITION = glm::ivec2(3, 0);
-
-    std::shared_ptr<Cache> cache = nullptr;
 
     Tetromino tetromino;
     Sequence sequence;
@@ -35,7 +33,7 @@ class GameState : public State {
     void Fall();
 
   public:
-    explicit GameState(StateManager &stateManager);
+    GameState(StateManager &stateManager, std::shared_ptr<GameContext> gameContext);
     ~GameState() override;
 
     void OnEvent(Automata::Event &event) override;

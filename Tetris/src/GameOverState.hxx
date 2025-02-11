@@ -3,15 +3,12 @@
 #include "tetpch.hxx"
 
 #include "Board.hxx"
-#include "Cache.hxx"
+#include "GameContext.hxx"
 #include "State.hxx"
 
 class GameOverState : public State {
-  private:
-    std::shared_ptr<Cache> cache = nullptr;
-
   public:
-    explicit GameOverState(StateManager &stateManager);
+    GameOverState(StateManager &stateManager, std::shared_ptr<GameContext> gameContext);
     ~GameOverState() override;
 
     void OnEvent(Automata::Event &event) override;

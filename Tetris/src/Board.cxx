@@ -61,11 +61,11 @@ bool Board::DoesTetrominoFit(const Tetromino &tetromino) {
     return true;
 }
 
-void Board::Clear() {
-    for (auto &row : board) {
-        std::fill(row.begin(), row.end(), 0);
-    }
-}
+// void Board::Clear() {
+//     for (auto &row : board) {
+//         std::fill(row.begin(), row.end(), 0);
+//     }
+// }
 
 void Board::ClearRows() {
     uint16_t offset = 0;
