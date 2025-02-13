@@ -3,12 +3,14 @@
 #include "tetpch.hxx"
 
 #include "GameLayer.hxx"
+#include "ImGuiLayer.hxx"
 
 namespace Automata {
     class TetrisApplication : public Application {
       public:
-        TetrisApplication() : Application(10 * 32, 20 * 32, "Tetris") {
-            PushLayer(new GameLayer());
+        TetrisApplication() : Application(320, 640, "Tetris Replicant") {
+            PushLayer(std::make_unique<GameLayer>());
+            PushLayer(std::make_unique<ImGuiLayer>());
         }
     };
 

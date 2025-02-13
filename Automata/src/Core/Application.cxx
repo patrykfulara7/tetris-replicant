@@ -16,16 +16,20 @@ namespace Automata {
     }
 
     Application::~Application() {
-        layer->OnDetach();
+        for (auto &layer : layers) {
+            layer->OnDetach();
+        }
     }
 
-    void Application::PushLayer(Layer *layer) {
-        this->layer = std::unique_ptr<Layer>(layer);
-        this->layer->OnAttach();
+    void Application::PushLayer(std::unique_ptr<Layer> layer) {
+        layers.emplace_back(std::move(layer));
+        layers.back()->OnAttach();
     }
 
     void Application::OnEvent(Event &event) {
-        layer->OnEvent(event);
+        for (auto &layer : layers) {
+            layer->OnEvent(event);
+        }
     }
 
     void Application::Close() {
@@ -40,11 +44,15 @@ namespace Automata {
             double time = glfwGetTime();
             double deltaTime = time - previousTime;
 
-            layer->OnUpdate(deltaTime);
+            for (auto &layer : layers) {
+                layer->OnUpdate(deltaTime);
+            }
 
             Renderer::Clear();
 
-            layer->OnRender();
+            for (auto &layer : layers) {
+                layer->OnRender();
+            }
 
             window.Update();
         }

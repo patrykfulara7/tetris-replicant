@@ -12,6 +12,7 @@ void GameLayer::OnAttach() {
 }
 
 void GameLayer::OnDetach() {
+    stateManager.PopState();
 }
 
 void GameLayer::OnEvent(Automata::Event &event) {

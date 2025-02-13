@@ -9,6 +9,8 @@ target_sources(${PROJECT_NAME}
     GameOverState.hxx
     GameState.cxx
     GameState.hxx
+    ImGuiLayer.hxx
+    ImGuiLayer.cxx
     Sequence.cxx
     Sequence.hxx
     State.cxx

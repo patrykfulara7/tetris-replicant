@@ -14,14 +14,14 @@ namespace Automata {
         static Application *instance;
 
         Window window;
-        std::unique_ptr<Layer> layer = nullptr;
+        std::vector<std::unique_ptr<Layer>> layers;
         bool isRunning = true;
 
       public:
         Application(int width, int height, const std::string &title);
         virtual ~Application();
 
-        void PushLayer(Layer *layer);
+        void PushLayer(std::unique_ptr<Layer> layer);
         void OnEvent(Event &event);
 
         static void Close();
