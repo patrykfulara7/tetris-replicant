@@ -15,9 +15,8 @@ namespace Automata {
 
             int width = 0;
             int height = 0;
-            std::string title;
 
-            WindowData(int width, int height, const std::string &title) : width(width), height(height), title(title) {
+            WindowData(int width, int height) : width(width), height(height) {
             }
         };
 
@@ -29,13 +28,14 @@ namespace Automata {
 
         void Update();
 
+        inline GLFWwindow *GetWindowHandle() const {
+            return data.windowHandle;
+        }
+
         inline void SetEventCallback(const EventCallback &callback) {
             data.callback = callback;
         }
 
-        inline GLFWwindow *GetWindowHandle() const {
-            return data.windowHandle;
-        }
         static inline std::unique_ptr<Window> Create(int width, int height, const std::string &title) {
             return std::make_unique<Window>(width, height, title);
         }

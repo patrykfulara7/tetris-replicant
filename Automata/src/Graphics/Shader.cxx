@@ -5,76 +5,64 @@
 #include "Utils/FileIO.hxx"
 
 namespace Automata {
-    Shader::Shader(const std::string &vertexPath, const std::string &fragmentPath) {
-        std::unordered_map<GLenum, std::string> sources;
+    Shader::Shader(const std::unordered_map<GLenum, std::string> &shaderPaths) {
+        std::unordered_map<GLenum, GLuint> shaders;
 
-        sources[GL_VERTEX_SHADER] = FileIO::ReadFile(vertexPath);
-        sources[GL_FRAGMENT_SHADER] = FileIO::ReadFile(fragmentPath);
+        for (auto &[shader, shaderPath] : shaderPaths) {
+            std::string source = FileIO::ReadFile(shaderPath);
 
-        const char *vertexSource = sources[GL_VERTEX_SHADER].c_str();
-        const char *fragmentSource = sources[GL_FRAGMENT_SHADER].c_str();
+            shaders[shader] = glCreateShader(shader);
 
-        GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-        GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+            const char *tmp = source.c_str();
+            glShaderSource(shaders[shader], 1, &tmp, nullptr);
 
-        glShaderSource(vertexShader, 1, &vertexSource, nullptr);
-        glShaderSource(fragmentShader, 1, &fragmentSource, nullptr);
+            GLint compiled;
 
-        GLint compiled;
+            glCompileShader(shaders[shader]);
 
-        glCompileShader(vertexShader);
-        glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &compiled);
-        if (compiled == GL_FALSE) {
-            GLint length;
-            glGetShaderiv(vertexShader, GL_INFO_LOG_LENGTH, &length);
+#ifdef AM_DEBUG
+            glGetShaderiv(shaders[shader], GL_COMPILE_STATUS, &compiled);
+            if (compiled == GL_FALSE) {
+                GLint length;
+                glGetShaderiv(shaders[shader], GL_INFO_LOG_LENGTH, &length);
 
-            std::vector<GLchar> infoLog(length);
-            glGetShaderInfoLog(vertexShader, length, &length, &infoLog[0]);
+                std::vector<GLchar> infoLog(length);
+                glGetShaderInfoLog(shaders[shader], length, &length, &infoLog[0]);
 
-            std::cout << infoLog.data() << std::endl;
+                std::cerr << infoLog.data() << std::endl;
 
-            AM_ASSERT(0);
-        }
-
-        glCompileShader(fragmentShader);
-        glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &compiled);
-        if (compiled == GL_FALSE) {
-            GLint length;
-            glGetShaderiv(fragmentShader, GL_INFO_LOG_LENGTH, &length);
-
-            std::vector<GLchar> infoLog(length);
-            glGetShaderInfoLog(fragmentShader, length, &length, &infoLog[0]);
-
-            std::cout << infoLog.data() << std::endl;
-
-            AM_ASSERT(0);
+                AM_ASSERT(0);
+            }
+#endif
         }
 
         ID = glCreateProgram();
 
-        glAttachShader(ID, vertexShader);
-        glAttachShader(ID, fragmentShader);
+        for (auto &[shader, shaderID] : shaders) {
+            glAttachShader(ID, shaderID);
+        }
 
         glLinkProgram(ID);
 
+#ifdef AM_DEBUG
         glGetProgramiv(ID, GL_LINK_STATUS, &compiled);
         if (compiled == GL_FALSE) {
             GLint length;
-            glGetProgramiv(fragmentShader, GL_INFO_LOG_LENGTH, &length);
+            glGetProgramiv(ID, GL_INFO_LOG_LENGTH, &length);
 
             std::vector<GLchar> infoLog(length);
-            glGetProgramInfoLog(fragmentShader, length, &length, &infoLog[0]);
+            glGetProgramInfoLog(ID, length, &length, &infoLog[0]);
 
-            std::cout << infoLog.data() << std::endl;
+            std::cerr << infoLog.data() << std::endl;
 
             AM_ASSERT(0);
         }
+#endif
 
-        glDetachShader(ID, vertexShader);
-        glDetachShader(ID, fragmentShader);
-
-        glDeleteShader(vertexShader);
-        glDeleteShader(fragmentShader);
+        for (auto &[shader, shaderID] : shaders) {
+            glDetachShader(ID, shaderID);
+            glDeleteShader(shaderID);
+        }
     }
 
     Shader::~Shader() {

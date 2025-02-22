@@ -1,4 +1,4 @@
-#version 330 core
+#version 450 core
 
 out vec4 oColor;
 
@@ -6,7 +6,6 @@ in vec2 TexturePosition;
 
 uniform sampler2D slot;
 
-void
-main(void) {
+void main(void) {
     oColor = texture(slot, TexturePosition);
 }
