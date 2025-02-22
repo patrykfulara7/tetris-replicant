@@ -13,7 +13,7 @@ First, download the repository along with its submodules:
 git clone --recursive -j8 https://github.com/patrykfulara7/tetris-replicant.git
 ```
 
-Then, build and compile it with [CMake](https://github.com/Kitware/CMake):
+Then, build and compile it with CMake:
 ```
 cd tetris-replicant
 cmake -S . -B build
