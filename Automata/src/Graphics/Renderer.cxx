@@ -34,9 +34,12 @@ namespace Automata {
         auto vertexBuffer = VertexBuffer::Create(vertcies.size() * sizeof(GLfloat), vertcies.data(), GL_STATIC_DRAW);
         vertexArray->SetVertexBuffer(vertexBuffer);
 
-        auto bufferLayout = BufferLayout::Create();
-        bufferLayout->PushAttribute(2, GL_FLOAT, GL_FALSE);
-        bufferLayout->PushAttribute(2, GL_FLOAT, GL_FALSE);
+        // clang-format off
+        auto bufferLayout = BufferLayout::Create({
+            { 2, GL_FLOAT },
+            { 2, GL_FLOAT }
+        });
+        // clang-format on
         vertexArray->SetBufferLayout(bufferLayout);
 
         // clang-format off

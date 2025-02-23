@@ -8,8 +8,8 @@ out vec2 TexturePosition;
 uniform mat4 projection;
 uniform mat4 model;
 
-void main(void) {
-    TexturePosition = iTexturePosition;
+void main() {
+    TexturePosition = TexturePosition;
 
     gl_Position = projection * model * vec4(iPosition, 0.0, 1.0);
 }

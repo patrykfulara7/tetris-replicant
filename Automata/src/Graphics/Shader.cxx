@@ -16,11 +16,10 @@ namespace Automata {
             const char *tmp = source.c_str();
             glShaderSource(shaders[shader], 1, &tmp, nullptr);
 
-            GLint compiled;
-
             glCompileShader(shaders[shader]);
 
 #ifdef AM_DEBUG
+            GLint compiled;
             glGetShaderiv(shaders[shader], GL_COMPILE_STATUS, &compiled);
             if (compiled == GL_FALSE) {
                 GLint length;
@@ -45,6 +44,7 @@ namespace Automata {
         glLinkProgram(ID);
 
 #ifdef AM_DEBUG
+        GLint compiled;
         glGetProgramiv(ID, GL_LINK_STATUS, &compiled);
         if (compiled == GL_FALSE) {
             GLint length;

@@ -9,3 +9,5 @@
 #endif
 
 #define AM_BIND_EVENT(x) std::bind(&x, this, std::placeholders::_1)
+
+#define AM_DEBUG
