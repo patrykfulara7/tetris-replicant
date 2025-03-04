@@ -8,25 +8,21 @@ A simple replica of Tetris written in C++ with OpenGL.
 
 ## Installation
 
-First, download the repository along with its submodules:
 ```
+# First, download the repository along with its submodules:
 git clone --recursive -j8 https://github.com/patrykfulara7/tetris-replicant.git
-```
 
-Then, build and compile it with CMake:
-```
+# Then, build and compile it with CMake:
 cd tetris-replicant
 cmake -S . -B build
 cmake --build build
-```
 
-Finally, run the executable:
-```
+# Finally, run the executable:
 # On Linux
 ./build/Tetris/tetris
 
 # On Windows
-.\build\Tetris\tetris.exe
+# .\build\Tetris\tetris.exe
 ```
 
 ## Controls
