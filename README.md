@@ -3,7 +3,7 @@
 🟦🟦🟦 Replicant
 </h1>
 
-A simple replica of Tetris written in C++ with OpenGL.
+Simple Tetris clone written in C++ with OpenGL.
 
 <p align="center">
 	<img width="320" height="640" src="https://imgur.com/tpitYAX.png">
