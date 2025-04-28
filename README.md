@@ -1,4 +1,7 @@
-# Tetris Replicant
+<h1>
+󠁝󠁛󠁛󠁛🟦 Tetris <br />
+🟦🟦🟦 Replicant
+</h1>
 
 A simple replica of Tetris written in C++ with OpenGL.
 
@@ -6,7 +9,7 @@ A simple replica of Tetris written in C++ with OpenGL.
 	<img width="320" height="640" src="https://imgur.com/tpitYAX.png">
 </p>
 
-## Installation
+## 🛠️ Installation
 
 ```
 # First, download the repository along with its submodules:
@@ -25,7 +28,7 @@ cmake --build build
 # .\build\Tetris\tetris.exe
 ```
 
-## Controls
+## 🕹️ Controls
 
 | Action         | Key   |
 |----------------|-------|
