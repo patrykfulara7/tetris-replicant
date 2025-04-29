@@ -2,8 +2,8 @@
 󠁝󠁛󠁛󠁛🟦 Tetris <br />
 🟦🟦🟦 Replicant
 </h1>
-
-Simple Tetris clone written in C++ with OpenGL.
+A simple Tetris clone written in C++ with OpenGL. <br />
+<br />
 
 <p align="center">
 	<img width="320" height="640" src="https://imgur.com/tpitYAX.png">
@@ -30,12 +30,16 @@ cmake --build build
 
 ## 🕹️ Controls
 
-| Action         | Key   |
-|----------------|-------|
-| Move Left      | H     |
-| Move Down      | J     |
-| Move Right     | L     |
-| Rotate Left    | Q     |
-| Rotate Right   | E     |
-| Close Game     | C     |
-| Restart Game   | R     |
+| Action             | Key |
+|------------------- |-----|
+| ⬅️ Move Left      | H   |
+| ⬇️ Move Down      | J   |
+| ➡️ Move Right     | L   |
+| 🔄 Rotate Left    | Q   |
+| 🔁 Rotate Right   | E   |
+| ❌ Close Game     | C   |
+| 🔄 Restart Game   | R   |
+
+## 📜 License
+
+This projecst is licensed under the MIT license - see the [LICENSE](https://github.com/patrykfulara7/tetris-replicant?tab=MIT-1-ov-file) for details.
