@@ -16,6 +16,7 @@
 #include <memory>
 #include <numeric>
 #include <random>
+#include <ranges>
 
 #include <array>
 #include <vector>

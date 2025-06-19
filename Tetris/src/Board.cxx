@@ -61,20 +61,16 @@ bool Board::DoesTetrominoFit(const Tetromino &tetromino) {
     return true;
 }
 
-// void Board::Clear() {
-//     for (auto &row : board) {
-//         std::fill(row.begin(), row.end(), 0);
-//     }
-// }
-
 void Board::ClearRows() {
-    uint16_t offset = 0;
+    uint16_t free = height - 1;
 
-    for (int32_t row = height - 1; row >= 0; row--) {
-        if (std::all_of(board[row].begin(), board[row].end(), [](uint8_t x) { return x > 0; })) {
-            offset++;
-        } else {
-            board[row + offset] = board[row];
+    for (const auto &row : std::views::reverse(board)) {
+        if (std::any_of(row.begin(), row.end(), [](uint8_t x) { return x == 0; })) {
+            board[free--] = row;
         }
+    }
+
+    for (; free < height; free--) {
+        std::fill(board[free].begin(), board[free].end(), 0);
     }
 }
