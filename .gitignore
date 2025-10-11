@@ -1,6 +1,10 @@
-.cache
-.vscode
+.cache/
+.vscode/
 .clang-format
-build
+build/
 Automata/src/CMakePlaceholders.hxx
 Tetris/src/CMakePlaceholders.hxx
+ThirdParty/
+!ThirdParty/glad
+!ThirdParty/imgui
+!ThirdParty/stb_image
